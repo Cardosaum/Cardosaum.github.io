@@ -1,0 +1,710 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  
+  <title>Why I'm unable to access my Windows' drives in Ubuntu?</title>
+
+  <meta name="author" content="Anudit Verma" />
+  <meta name="theme-color" content="#a50509">
+  <meta name="description" content="Hi! I'm Anudit Verma, Computer Science engineer from USICT, New Delhi. I'm a programmer, software developer, former GSoC student, loves to create digital art, listen to music and play video games. Loves to meet new people, connect, discuss, network and grow, mostly at software developers’ conferences, dev-fests and gaming meet-ups.">
+  <meta name="keywords" content="anudit, verma, geek, linux, science, math, mathematics, gsoc, google summer of code, raspberry pi, music, Internet of Things, research, android">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/png" href="/favicon.png" />
+
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({messageStyle: 'none',tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  <link rel="alternate" type="application/rss+xml" title="Anudit Verma - Let me introduce you to my geek side!" href="/feed.xml" />
+
+  
+  
+<!-- Google Analytics -->
+<script>
+    (function (i, s, o, g, r, a, m) {
+        i['GoogleAnalyticsObject'] = r; i[r] = i[r] || function () {
+            (i[r].q = i[r].q || []).push(arguments)
+        }, i[r].l = 1 * new Date(); a = s.createElement(o),
+            m = s.getElementsByTagName(o)[0]; a.async = 1; a.src = g; m.parentNode.insertBefore(a, m)
+    })(window, document, 'script', 'https://www.google-analytics.com/analytics.js', 'ga');
+    ga('create', 'UA-84991519-1', 'auto');
+    ga('send', 'pageview');
+</script>
+<!-- End Google Analytics -->
+
+  
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+      <link rel="stylesheet" href="/css/particle-js-style.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="Why I'm unable to access my Windows' drives in Ubuntu?" />
+  
+
+   
+  <meta property="og:description" content="The scenario: You have just installed a freshly brewed Linux image alongside with your Windows OS, everything works fine but then you realise you are not able to mount/access your Windows’ partitions. So why is this happening? If you have Windows 8 or later version then you might face this...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/" />
+  <link rel="canonical" href="http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/" />
+  
+
+  
+  <meta property="og:image" content="https://www.anudit.in/img/io-error.jpg" />
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@anuditverma" />
+  <meta name="twitter:creator" content="@anuditverma" />
+
+  
+  <meta name="twitter:title" content="Why I'm unable to access my Windows' drives in Ubuntu?" />
+  
+
+  
+  <meta name="twitter:description" content="The scenario: You have just installed a freshly brewed Linux image alongside with your Windows OS, everything works fine but then you realise you are not able to mount/access your Windows’ partitions. So why is this happening? If you have Windows 8 or later version then you might face this...">
+  
+
+  
+  <meta name="twitter:image" content="https://www.anudit.in/img/io-error.jpg" />
+  
+
+</head>
+
+
+  <body>
+
+  <div class="mobile-js-hide">
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+  </div>
+
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Anudit Verma</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/books">Books</a>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/aboutme">About Me</a>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Publications</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="http://ieeexplore.ieee.org/document/7918794/">A framework of smart homes connected devices using Internet of Things</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://scholar.google.co.in/citations?user=4p4smu0AAAAJ">Google Scholar Profile</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://www.researchgate.net/profile/Anudit_Verma">ResearchGate Profile</a>
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li class="navlinks-container">
+            <a class="navlinks-parent" href="javascript:void(0)">Projects</a>
+            <div class="navlinks-children">
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/anuditverma/org.civicrm.osdi">GSoC'15</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://www.linkedin.com/feed/update/activity:6273369896978087936/">Airtel Suvidha (Airtel WHack Hackathon)</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://www.rlcf.ey.com/in/en/newsroom/news-releases/news-ey-annouces-winners-of-the-intelligent-automation-hackathon">Contract Reader Tool (EY Hackathon)</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/anuditverma/MAA-Avaya-Hackathon">Medical Ambience App</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://github.com/anuditverma/appbase-typeracer">TypeRacer</a>
+                
+              
+                
+                  
+
+
+
+
+
+
+<a href="https://www.npmjs.com/package/videojs-overlay-hyperlink">video.js Overlay Hyperlink</a>
+                
+              
+            </div>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/resume/Anudit_Verma.pdf">Resume</a>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+<!-- ALways use my avatar, irrespective of the post image -->
+  <div class="avatar-container">
+    <div class="avatar-img-border">
+      <a href="http://localhost:4000 ">
+        <img class="avatar-img" src="http://localhost:4000/img/av.jpg" />
+     </a>
+    </div>
+  </div>
+
+  </div>
+</nav>
+
+    <!-- particles.js exclusion -->
+<style>
+  #particles-js{
+      display: none;
+  }
+</style>
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      
+
+      <article role="main" class="blog-post">
+        <p><strong>The scenario:</strong> You have just installed a freshly brewed Linux image alongside with your Windows OS, everything works fine but then you realise you are not able to mount/access your Windows’ partitions.</p>
+
+<div class="ads">
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"anuditverma","width":320,"height":50,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async=""></script>
+</div>
+
+<p><strong>So why is this happening?</strong> If you have Windows 8 or later version then you might face this problem because of the fast-startup (aka fast-boot) feature, which must be turned off, what it does is it allows your computer to go in a partial sleep state or hibernation state which helps Windows to boot up quickly, in technical terms Windows’ kernel still possess the control of your hardware even if you shutdown/restart your computer and boot into a different OS.</p>
+
+<p><strong>What should you do then?</strong>:
+I will tell you 3 ways to fix this, quick steps no fuss!
+FYI, little over with more experimentation with bootloader and MBR records displayed in the BIOS settings, I was able to find a new way to easily make Windows files accessible, so now there are <strong>4 ways!</strong></p>
+
+<p>Let’s check them out, but before actually going with one of the methods make sure to read all the steps and choose the one according to your situation you are in.</p>
+
+<p><strong>Useful Link:</strong> <a href="http://www.disk-image.com/faq-bootmenu.htm">Here</a> is a list of PC brands with their corresponding hot-keys for accessing Boot Menu or BIOS settings.</p>
+
+<h4 id="1-using-terminal-use-this-when-you-are-currently-logged-in-ubuntu"><strong>1. Using Terminal (Use this when you are currently logged in Ubuntu)</strong>:</h4>
+
+<p>1.1 Quickly open the terminal or press <kbd>Ctrl</kbd> + <kbd>Alt</kbd> + <kbd>T</kbd></p>
+
+<p>1.2 First you need to find out the partition’s name which you want to access, run the following command:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>fdisk <span class="nt">-l</span> 
+</code></pre></div></div>
+<p>1.3 Then run this command in your terminal, to access your drive in read/write mode.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>mount <span class="nt">-t</span> ntfs-3g <span class="nt">-o</span> rw /dev/sda1 /media/&lt;YOUR-Partition-name&gt;
+</code></pre></div></div>
+
+<center>OR</center>
+
+<p>Run this command (if the previous didn’t work)</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>ntfsfix /dev/&lt;YOUR-Partition-name&gt;
+</code></pre></div></div>
+<p>It only repairs some fundamental NTFS inconsistencies and resets the NTFS journal file, it’s a very quick way to access your drives if you need them urgently <strong>BUT</strong> it schedules an NTFS consistency check for the first boot into Windows.</p>
+
+<h4 id="2-disabling-fast-startup-permanent-fix-but-at-the-cost-of-increased-bootup-time"><strong>2. Disabling Fast Startup (Permanent fix but at the cost of increased bootup time)</strong>:</h4>
+
+<p>2.1 Navigate to <strong>Control Panel</strong> then <strong>Power Options</strong> of your Windows OS.</p>
+
+<p>2.2 Click <strong>“Choose what the power buttons do.”</strong></p>
+
+<p>2.3 Then Click “<strong>Change settings that are currently unavailable</strong>” to make the Fast Startup option available for configuration.</p>
+
+<p>2.4 Look for “<strong>Turn on fast-startup(recommended)</strong>” option and uncheck this box.</p>
+
+<p>Reboot your computer into Ubuntu, you should be able to access your drives now.</p>
+
+<p><strong>NOTE:</strong> Remember, doing such a permanent method could hamper some of your Windows bootup time, you might not consider this method if you use Windows frequently.</p>
+
+<div class="ads">
+<div class="mobile-js-hide">
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"anuditverma","width":550,"height":250,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async=""></script>
+</div>
+</div>
+
+<h4 id="3-reboot-way-use-this-when-you-are-about-to-power-up-your-system"><strong>3. (Re)boot Way (Use this when you are about to Power up your system)</strong>:</h4>
+
+<p>Nothing technical, the easiest way but might take some time, depending on your machine configuration and bootup timings. Just sit back, relax and watch your computer booting up (meanwhile check your phone or try recollecting what you will be doing after the bootup or clean the dust off your laptop, (first world problems, I know right) so let’s dive in,</p>
+
+<p>3.1 <strong>Restart/Turn on</strong> your computer and <strong>boot up Windows OS first</strong> (with GRUB or any other bootloader you use to switch OS ), till login screen.</p>
+
+<p>3.2 <strong>Don’t</strong> enter your credentials to login, just don’t login, instead <strong>restart again.</strong></p>
+
+<p>3.3 Now this time boot up into Ubuntu, login and check if you can access your drives or not. (if not select method 2 or 3)</p>
+
+<h4 id="4-reboot-shutdown-reboot-rsr-a-quick-way-requires-ninja-skills"><strong>4. Reboot Shutdown Reboot (RSR, a quick way, requires Ninja Skills)</strong>:</h4>
+
+<p>According to me this seems a more efficient way (less time consuming) to make the Windows’ files system accessible but there is a catch, here you cannot just sit back and watch your computer booting up (like in Method 3), you need to be swift and quick in using your hot-keys to trigger boot menu or BIOS.</p>
+
+<p>4.1 <strong>Start/Restart</strong> your computer to <strong>boot menu.</strong></p>
+
+<p>4.2 <strong>Don’t make any selection</strong> and just press the power button to <strong>turn off your computer.</strong></p>
+
+<p>4.3 <strong>Boot again to boot menu</strong> and <strong>select Ubuntu</strong>, you should be able to access your Windows’ file system.</p>
+
+<h3 id="conclusion"><strong>Conclusion</strong>:</h3>
+<p>Choose any method depending on your needs, follow method 2, if you use Ubuntu more frequently (or your primary OS is Ubuntu) it’s a permanent solution. Use method 1 or 3 which are temporary solutions if you use Windows equally. Try method 4 if you need to something in between permanent and temporary.</p>
+
+<div class="ads">
+<div class="mobile-js-hide">
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"anuditverma","width":728,"height":90,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async=""></script>
+</div>
+</div>
+
+<p>Comment below if you know another method or didn’t understand any of the methods above.</p>
+
+<p>Thanks for reading.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#linux">linux</a>
+          
+            <a href="/tags#windows">windows</a>
+          
+            <a href="/tags#dual boot">dual boot</a>
+          
+            <a href="/tags#hack">hack</a>
+          
+          
+        </div>
+      
+
+      
+        <!-- Check if any share-links are active -->
+
+
+
+
+<section id = "social-share-section">
+  <span class="sr-only">Share: </span>
+
+  
+  <!--- Share on Twitter -->
+    <a href="https://twitter.com/intent/tweet?text=Why+I%27m+unable+to+access+my+Windows%27+drives+in+Ubuntu%3F+http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/"
+      class="btn btn-social-icon btn-twitter" title="Share on Twitter">
+      <span class="fa fa-fw fa-twitter" aria-hidden="true"></span>
+      <span class="sr-only">Twitter</span>
+    </a>
+  
+
+  
+  <!--- Share on Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u=http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/"
+      class="btn btn-social-icon btn-facebook" title="Share on Facebook">
+      <span class="fa fa-fw fa-facebook" aria-hidden="true"></span>
+      <span class="sr-only">Facebook</span>
+    </a>
+  
+
+  
+  <!--- Share on Google Plus -->
+    <a href="https://plus.google.com/share?url=http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/"
+      class="btn btn-social-icon btn-google" title="Share on Google+">
+      <span class="fa fa-fw fa-google-plus" aria-hidden="true"></span>
+      <span class="sr-only">Google+</span>
+    </a>
+  
+
+  
+  <!--- Share on LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url=http://localhost:4000/2015-09-10-can't-access-windows-files-in-ubuntu/"
+      class="btn btn-social-icon btn-linkedin" title="Share on LinkedIn">
+      <span class="fa fa-fw fa-linkedin" aria-hidden="true"></span>
+      <span class="sr-only">LinkedIn</span>
+    </a>
+  
+
+</section>
+
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2015-09-06-this-is-your-quest-for-space-exploration/" data-toggle="tooltip" data-placement="top" title="This Is For Your Incredible Quest of Space Exploration And Beyond">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2015-11-14-worlds-first-webpage/" data-toggle="tooltip" data-placement="top" title="Here Is The World's First Webpage!">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+        <div class="disqus-comments">
+          
+<div class="comments">
+    <div id="disqus_thread"></div>
+    <script type="text/javascript">
+        var disqus_shortname = 'anuditverma';
+            var url_parts = window.location.href.split("?");
+            url_parts = url_parts[0].split("#");
+            disqus_url = url_parts[0];
+            disqus_url = disqus_url.replace(/(\/)*$/, "/");
+            disqus_url = disqus_url.replace(/https:\/\//, "http:\/\/");
+            if (disqus_url.substr(-9) == "projects/") {
+                disqus_url = disqus_url.substr(0, disqus_url.length - 1);
+            }
+
+        (function() {
+            var dsq = document.createElement('script'); dsq.type = 'text/javascript'; dsq.async = true;
+            dsq.src = '//' + disqus_shortname + '.disqus.com/embed.js';
+            (document.getElementsByTagName('head')[0] || document.getElementsByTagName('body')[0]).appendChild(dsq);
+        })();
+    </script>
+    <noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+</div>
+
+        </div>
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          <li>
+            <a href="https://www.facebook.com/anuditverma" title="Facebook">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-facebook fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Facebook</span>
+            </a>
+          </li>
+          
+          
+          <li>
+            <a href="https://github.com/anuditverma" title="GitHub">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-github fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">GitHub</span>
+            </a>
+          </li>
+          
+      
+          <li>
+            <a href="https://twitter.com/anuditverma" title="Twitter">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-twitter fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Twitter</span>
+            </a>
+          </li>
+          
+    
+      
+          <li>
+            <a href="https://plus.google.com/+AnuditVerma" title="Google+">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-google-plus fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Google+</span>
+            </a>
+          </li>
+          
+      
+      
+          <li>
+            <a href="https://linkedin.com/in/anuditverma" title="LinkedIn">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          
+      
+      
+      
+      
+          <li>
+            <a href="https://www.instagram.com/anuditverma" title="Instagram">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-instagram fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">Instagram</span>
+            </a>
+          </li>
+          
+      
+      
+      
+      
+      
+      
+      
+        </ul>
+        <p class="copyright text-muted">
+      Anudit Verma
+      &nbsp;&bull;&nbsp;
+      2019
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000">www.anudit.in</a>
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Awesome Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+        if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.12.4.min.js"></scr' + 'ipt>');
+        }
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/main.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/particles.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/particles-config.js"></script>
+    
+  
+
+  
+  </body>
+</html>
