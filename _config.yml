@@ -12,7 +12,7 @@ baseurl: ""
 #baseurl: "/projectname"
 
 # Name of website
-title: Anudit Verma
+title: Matheus Cardoso
 
 #For my changes
 # use meta-title: for the center heading of the page.
@@ -20,19 +20,19 @@ title: Anudit Verma
 # use subtitle: to set the sub heading for that title(meta-title). NOTE: if(meta-title exists){subtilel visiblity = true}
 
 # Short description of your site
-description: Let me introduce you to my geek side!
+description: Hey, bora aprender
 
 # --- Navigation bar options --- #
 
 # List of links in the navigation bar
 navbar-links:
-  Books: "books"
+  Uns livro ai: "books"
   About Me: "aboutme"
-  Publications:
+  Aqui fica uma lista:
     - A framework of smart homes connected devices using Internet of Things: "http://ieeexplore.ieee.org/document/7918794/"
     - Google Scholar Profile: "https://scholar.google.co.in/citations?user=4p4smu0AAAAJ"
     - ResearchGate Profile: "https://www.researchgate.net/profile/Anudit_Verma"
-  Projects:
+  Aqui é outra lista:
     - GSoC'15: "https://github.com/anuditverma/org.civicrm.osdi"
     - Airtel Suvidha (Airtel WHack Hackathon): "https://www.linkedin.com/feed/update/activity:6273369896978087936/"
     - Contract Reader Tool (EY Hackathon): "https://www.rlcf.ey.com/in/en/newsroom/news-releases/news-ey-annouces-winners-of-the-intelligent-automation-hackathon"
@@ -44,7 +44,7 @@ navbar-links:
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
-avatar: "/img/av.jpg"
+# avatar: "/img/av.jpg"
 
 # If you want to have an image logo in the top-left corner instead of the title text,
 # then specify the following parameter. The logo will have a height of 40px
@@ -55,11 +55,11 @@ avatar: "/img/av.jpg"
 # By default, the navigation bar and footer have a light gray background, and the main page
 # has a white background. You can specify a different background colour or a background image
 # for the navigation bar, the main page, and the footer.
-# navbar-col: "orange"
+# navbar-col: "#002b36"
 # navbar-img: "/img/bgimage.png"
-# footer-col: "blue"
+# footer-col: "#002b36"
 # footer-img: "/img/bgimage.png"
-# page-col: "#FF0000"
+# page-col: "#839496"
 # page-img: "/img/bgimage.png"
 
 # --- Footer options --- #
@@ -67,7 +67,7 @@ avatar: "/img/av.jpg"
 # Change all these values or delete the ones you don't want.
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
-  name: Anudit Verma
+  name: Matheus Cardoso
 # email: "youremail@domain.com"
   facebook: anuditverma
   github: anuditverma
