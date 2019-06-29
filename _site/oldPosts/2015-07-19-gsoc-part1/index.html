@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
   
-  <title>Tag Index</title>
+  <title>Implementing Open Supporter Data Interface (OSDI) API for CiviCRM Part I - Beginning</title>
 
   <meta name="author" content="Matheus Cardoso" />
   <meta name="theme-color" content="#003A50">
@@ -77,21 +77,23 @@
   
 
   
-  <meta property="og:title" content="Tag Index" />
+  <meta property="og:title" content="Implementing Open Supporter Data Interface (OSDI) API for CiviCRM Part I - Beginning" />
   
 
    
-  <meta property="og:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta property="og:description" content="I worked on the Open Supporter Data Interface (OSDI) API implementation into [CiviCRM](https://civicrm.org/) project as a 2015 [Google Summer of Code](https://www.google-melange.com/archive/gsoc/2015/orgs/civicrm/projects/anuditverma.html) student. OSDI is a way for progressive US-based organizations which do community, labour and political organizing, use CiviCRM and are customers of various progressive data vendors to “sync up...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://localhost:4000/tags/" />
-  <link rel="canonical" href="http://localhost:4000/tags/" />
+  <meta property="og:url" content="http://localhost:4000/oldPosts/2015-07-19-gsoc-part1/" />
+  <link rel="canonical" href="http://localhost:4000/oldPosts/2015-07-19-gsoc-part1/" />
   
 
+  
+  <meta property="og:image" content="https://www.anudit.in/img/GSoC_15.jpg" />
   
   
 
@@ -101,13 +103,15 @@
   <meta name="twitter:creator" content="@_cardosaum_" />
 
   
-  <meta name="twitter:title" content="Tag Index" />
+  <meta name="twitter:title" content="Implementing Open Supporter Data Interface (OSDI) API for CiviCRM Part I - Beginning" />
   
 
   
-  <meta name="twitter:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta name="twitter:description" content="I worked on the Open Supporter Data Interface (OSDI) API implementation into [CiviCRM](https://civicrm.org/) project as a 2015 [Google Summer of Code](https://www.google-melange.com/archive/gsoc/2015/orgs/civicrm/projects/anuditverma.html) student. OSDI is a way for progressive US-based organizations which do community, labour and political organizing, use CiviCRM and are customers of various progressive data vendors to “sync up...">
   
 
+  
+  <meta name="twitter:image" content="https://www.anudit.in/img/GSoC_15.jpg" />
   
 
 </head>
@@ -180,21 +184,106 @@
   </div>
 </nav>
 
-    <!-- TODO this file has become a mess, refactor it -->
+    <!-- particles.js exclusion -->
+<style>
+  #particles-js{
+      display: none;
+  }
+</style>
+
+<!-- TODO this file has become a mess, refactor it -->
 
 
 <div class="intro-header"></div>
 
 
-<div class="container" role="main">
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div id="full-tags-list"></div>
-	    
+      
+
+      <article role="main" class="blog-post">
+        <p>I worked on the Open Supporter Data Interface (OSDI) API implementation into <a href="https://civicrm.org/">CiviCRM</a> project as a 2015 <a href="https://www.google-melange.com/archive/gsoc/2015/orgs/civicrm/projects/anuditverma.html">Google Summer of Code</a> student.</p>
+
+<p>OSDI is a way for progressive US-based organizations which do community, labour and political organizing, use CiviCRM and are customers of various progressive data vendors to “sync up all their stuff” about contacts and their various activities.</p>
+
+<p>For example, an organization might use <a href="https://www.ngpvan.com/">NGP VAN</a> to get access to information about its supporters who are voters. It might use <a href="https://www.shareprogress.org/">ShareProgress</a> to ask supporters to take action on an issue using social media links, based on a “blast” e-mail sent by that organization to supporters using <a href="https://www.salsalabs.com/">Salsa</a>. <a href="https://actionnetwork.org/">The Action Network</a> already has a working OSDI implementation.</p>
+
+<p>With the implementation of the OSDI API by an organization using CiviCRM, and coming OSDI implementations by these (and other) progressive data and software vendors, supporter data from NGP VAN, ShareProgress, Salsa and the Action Network can be synced to that organization’s CiviCRM installation. Similarly, CiviCRM data will be able to be synchronized to these other applications.</p>
+
+<p><strong>Overview</strong></p>
+
+<p>The OSDI API implementation is in line with CiviCRM’s mission to be an open platform for organizations of all sizes. Creating the implementation will allow them to use the OSDI API easily. The existence of a common API will reduce progressive data vendors’ customer costs related to moving data between different systems, lower integration costs and enhance the ability of innovators to create products for the marketplace. You can learn more about OSDI at <a href="http://opensupporter.org/">www.opensupporter.org</a></p>
+
+<p><strong>Benefits of a common API:</strong></p>
+
+<p>Customers, Digital and Tech Directors, Technology Consultants</p>
+
+<ul>
+  <li>Less manual and error-prone data import/export</li>
+  <li>Better ability to pick and choose technology products and use them together</li>
+  <li>Multi-vendor solutions mean less scope for problems</li>
+</ul>
+
+<p>Technology Application Developers</p>
+
+<ul>
+  <li>Write platform integration code once rather than per platform which requires fewer development hours</li>
+  <li>Data consistency across platforms reduces cost</li>
+  <li>Can spend more resources on new customer features rather than integration code</li>
+</ul>
+
+<p>Platform Vendors</p>
+
+<ul>
+  <li>Ability to integrate means an easier sell to customers who already use another platform</li>
+  <li>Common API across vendors enables a larger app ecosystem for the platform</li>
+</ul>
+
+<p><strong>Bonding with the CiviCRM community</strong></p>
+
+<p>The community bonding phase is a great chance for GSoC students to get along with their organisation, adapt their workflow, set up a development environment and have useful introductory sessions with their project mentors.</p>
+
+<p>I too had a similar experience with my project mentors Joe McLaughlin, Eileen McNaughton, Joe Murray and Tim Anderegg along with OSDI founder Josh Cohen and Jason Rosenbaum of the Action Network. It sure feels great to come across talented people who are very zealous and motivated toward open-source technology. Also, it is a great opportunity to learn and absorb knowledge from their working experience and contributions to the community.</p>
+
+<p>Josh Cohen hosts weekly online OSDI Technology Committee meetings. I was a regular attendee with Joe McLaughlin which helped me significantly in gaining knowledge and insights about OSDI implementation processes and profiles for different CRMs.</p>
+
+<p>Next weeks I actively discussed various vital processes required to set up my development environment. A few roadblocks and issues were encountered in the initial setup in Windows but after proper guidance and assistance from experienced members on IRC, I moved to Linux and initiated the development environment setup on it. Moving along, objectives for the next weeks were to develop a wrapper to get API for contact in accordance with OSDI format and experimenting with the <a href="https://github.com/mikekelly/hal-browser">HAL browser</a>.</p>
+
+<p><strong>Important Links:</strong></p>
+
+<ul>
+  <li><a href="http://wiki.civicrm.org/confluence/display/CRM/OSDI+Integration">Project Page</a></li>
+  <li><a href="http://opensupporter.org/">OSDI.org</a></li>
+  <li><a href="https://civicrm.org/blog/anudit-verma/implementing-the-open-supporter-data-interface-osdi-api-for-civicrm">Original Blog Post  Part I</a> on CiviCRM.</li>
+</ul>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#gsoc">gsoc</a>
+          
+            <a href="/tags#open source">open source</a>
+          
+          
+        </div>
+      
+
+      
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
     </div>
   </div>
 </div>
-
 
     <footer>
   <div class="container beautiful-jekyll-footer">

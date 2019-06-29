@@ -6,7 +6,7 @@
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
   
-  <title>Tag Index</title>
+  <title>Fix: This location could not be displayed Input/Output error in Ubuntu</title>
 
   <meta name="author" content="Matheus Cardoso" />
   <meta name="theme-color" content="#003A50">
@@ -77,21 +77,23 @@
   
 
   
-  <meta property="og:title" content="Tag Index" />
+  <meta property="og:title" content="Fix: This location could not be displayed Input/Output error in Ubuntu" />
   
 
    
-  <meta property="og:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta property="og:description" content="If you are having trouble accessing your Window's partition from inside Ubuntu because of an error which reads &quot;This location could not be displayed&quot; and input/output error, then follow this simple guide to recover from this error and solve it quickly to get back the access to your partition. First...">
   
 
 
   <meta property="og:type" content="website" />
 
   
-  <meta property="og:url" content="http://localhost:4000/tags/" />
-  <link rel="canonical" href="http://localhost:4000/tags/" />
+  <meta property="og:url" content="http://localhost:4000/oldPosts/2017-07-14-fix-location-could-not-be-display-input-output-error-in-ubuntu/" />
+  <link rel="canonical" href="http://localhost:4000/oldPosts/2017-07-14-fix-location-could-not-be-display-input-output-error-in-ubuntu/" />
   
 
+  
+  <meta property="og:image" content="https://www.anudit.in/img/io-error.jpg" />
   
   
 
@@ -101,13 +103,15 @@
   <meta name="twitter:creator" content="@_cardosaum_" />
 
   
-  <meta name="twitter:title" content="Tag Index" />
+  <meta name="twitter:title" content="Fix: This location could not be displayed Input/Output error in Ubuntu" />
   
 
   
-  <meta name="twitter:description" content="{%- capture site_tags -%} {%- for tag in site.tags -%} {{- tag | first -}}{%- unless forloop.last -%},{%- endunless -%} {%- endfor -%} {%- endcapture -%} {%- assign tags_list = site_tags | split:',' | sort -%} {%- for tag in tags_list -%} &amp;nbsp;{{- tag -}}&amp;nbsp;({{site.tags[tag].size}}) {%- endfor -%} {%- for...">
+  <meta name="twitter:description" content="If you are having trouble accessing your Window's partition from inside Ubuntu because of an error which reads &quot;This location could not be displayed&quot; and input/output error, then follow this simple guide to recover from this error and solve it quickly to get back the access to your partition. First...">
   
 
+  
+  <meta name="twitter:image" content="https://www.anudit.in/img/io-error.jpg" />
   
 
 </head>
@@ -180,21 +184,152 @@
   </div>
 </nav>
 
-    <!-- TODO this file has become a mess, refactor it -->
+    <!-- particles.js exclusion -->
+<style>
+  #particles-js{
+      display: none;
+  }
+</style>
+
+<!-- TODO this file has become a mess, refactor it -->
 
 
 <div class="intro-header"></div>
 
 
-<div class="container" role="main">
+<div class="container">
   <div class="row">
     <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
-      <div id="full-tags-list"></div>
-	    
+      
+
+      <article role="main" class="blog-post">
+        <p>If you are having trouble accessing your Window’s partition from inside Ubuntu because of an error which reads “This location could not be displayed” and input/output error, then follow this simple guide to recover from this error and solve it quickly to get back the access to your partition.</p>
+
+<center><img src="/img/io-error.jpg" /></center>
+
+<center><h3>First of all, you need to know why this is happening?</h3></center>
+<ul>
+  <li>If you are having a dual boot machine with Windows and Ubuntu and you are frequently switching between operating systems (that’s not a problem at all) but you might not be shutting down Windows properly or there is a power cut while shutting down or you forced it to shut down, then your partition might get corrupted.</li>
+</ul>
+
+<div class="ads">
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"anuditverma","width":320,"height":50,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async=""></script>
+</div>
+
+<ul>
+  <li>
+    <p>If you have accidentally deleted some important hidden system or configuration files (used by Ubuntu) from inside Windows.</p>
+  </li>
+  <li>
+    <p>You have tried to open ext4 partition ( on which Ubuntu is installed) from Windows, this will delete the whole partition or either get corrupted or completed formatted.</p>
+  </li>
+  <li>
+    <p>You might be getting the input/output error because of some hardware failure or hardware issues, then this guide might not help you, then it would be best to get the backup of your data by using a data recovery tool and replace your hard drive.</p>
+  </li>
+</ul>
+
+<h3>Solution:</h3>
+<p>Now if you are sure that your hardware is working fine then there might be a problem with your GPT partition table which might be damaged or with a corrupted file system. In order to repair this we will use <strong>chkdsk,</strong> it is a tool to display the file system integrity status of hard disks and can fix logical file system errors.</p>
+
+<p>Now let’s get to the solution, follow these steps:</p>
+
+<h4 id="1-first-log-on-to-your-windows-os"><strong>1. First Log on to your Windows OS.</strong></h4>
+
+<h4 id="2-open-cmd-command-prompt"><strong>2. Open cmd (Command Prompt).</strong></h4>
+
+<ol>
+  <li>Quickly open the cmd (Command Prompt), press <kbd>Windows</kbd> + <kbd>R</kbd>, type <strong>cmd</strong> and press <kbd>Ctrl</kbd> + <kbd>Shift</kbd> + <kbd>Enter</kbd> (to <strong>Run as administrator</strong>.)</li>
+</ol>
+
+<center>OR</center>
+
+<ol>
+  <li>Click <strong>Start</strong>, click <strong>All Programs</strong>, and then click <strong>Accessories</strong> or type <strong>cmd</strong> in the Search box.</li>
+  <li>Right-click <strong>Command prompt</strong>, and then click <strong>Run as administrator</strong>.</li>
+</ol>
+
+<div class="ads">
+<div class="mobile-js-hide">
+<script type="text/javascript">
+  ( function() {
+    if (window.CHITIKA === undefined) { window.CHITIKA = { 'units' : [] }; };
+    var unit = {"calltype":"async[2]","publisher":"anuditverma","width":728,"height":90,"sid":"Chitika Default"};
+    var placement_id = window.CHITIKA.units.length;
+    window.CHITIKA.units.push(unit);
+    document.write('<div id="chitikaAdBlock-' + placement_id + '"></div>');
+}());
+</script>
+<script type="text/javascript" src="//cdn.chitika.net/getads.js" async=""></script>
+</div>
+</div>
+
+<h4 id="3-run-chkdsk-on-cmd"><strong>3. Run chkdsk on cmd.</strong></h4>
+
+<ul>
+  <li>Now on the cmd, you need to <strong>run chkdsk on your affected drive</strong> to repair the errors, run the following command (if you want to run check C: Drive)</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkdsk /f C:
+</code></pre></div></div>
+<p>This will check the C: drive for errors, and fix them if detected.</p>
+
+<ul>
+  <li>Alternatively, you can also type,</li>
+</ul>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>chkdsk /r C:
+</code></pre></div></div>
+<p>This will check the C: drive for errors, and automatically recover the readable data from the bad sectors that the drive may contain.</p>
+
+<p>I hope this will solve your problem, <strong>“This location could not be displayed” and input/output error</strong> on Ubuntu, if not then comment below for further discussions.</p>
+
+<h3>Useful Link(s):</h3>
+
+<ul>
+  <li>A complete guide on chkdsk can be found <a href="https://neosmart.net/wiki/chkdsk/">here.</a></li>
+</ul>
+
+<p>Thank you for reading.</p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#Ubuntu">Ubuntu</a>
+          
+            <a href="/tags#Linux">Linux</a>
+          
+            <a href="/tags#Windows">Windows</a>
+          
+            <a href="/tags#hack">hack</a>
+          
+          
+        </div>
+      
+
+      
+
+      <ul class="pager blog-pager">
+        
+        
+      </ul>
+
+      
     </div>
   </div>
 </div>
-
 
     <footer>
   <div class="container beautiful-jekyll-footer">
