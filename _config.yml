@@ -26,21 +26,21 @@ description: Hey, bora aprender
 
 # List of links in the navigation bar
 navbar-links:
-  Uns livro ai: "books"
-  About Me: "aboutme"
-  Aqui fica uma lista:
-    - A framework of smart homes connected devices using Internet of Things: "http://ieeexplore.ieee.org/document/7918794/"
-    - Google Scholar Profile: "https://scholar.google.co.in/citations?user=4p4smu0AAAAJ"
-    - ResearchGate Profile: "https://www.researchgate.net/profile/Anudit_Verma"
-  Aqui é outra lista:
-    - GSoC'15: "https://github.com/anuditverma/org.civicrm.osdi"
-    - Airtel Suvidha (Airtel WHack Hackathon): "https://www.linkedin.com/feed/update/activity:6273369896978087936/"
-    - Contract Reader Tool (EY Hackathon): "https://www.rlcf.ey.com/in/en/newsroom/news-releases/news-ey-annouces-winners-of-the-intelligent-automation-hackathon"
-    - Medical Ambience App: "https://github.com/anuditverma/MAA-Avaya-Hackathon"
-    - TypeRacer: "https://github.com/anuditverma/appbase-typeracer"
-    - video.js Overlay Hyperlink: "https://www.npmjs.com/package/videojs-overlay-hyperlink"
-  Resume: "resume/Anudit_Verma.pdf"
-#  Tags: "tags"
+  # Uns livro ai: "livros"
+  Sobre Mim: "aboutme"
+  # Aqui fica uma lista:
+  #   - A framework of smart homes connected devices using Internet of Things: "http://ieeexplore.ieee.org/document/7918794/"
+  #   - Google Scholar Profile: "https://scholar.google.co.in/citations?user=4p4smu0AAAAJ"
+  #   - ResearchGate Profile: "https://www.researchgate.net/profile/Anudit_Verma"
+  # Aqui é outra lista:
+  #   - GSoC'15: "https://github.com/anuditverma/org.civicrm.osdi"
+  #   - Airtel Suvidha (Airtel WHack Hackathon): "https://www.linkedin.com/feed/update/activity:6273369896978087936/"
+  #   - Contract Reader Tool (EY Hackathon): "https://www.rlcf.ey.com/in/en/newsroom/news-releases/news-ey-annouces-winners-of-the-intelligent-automation-hackathon"
+  #   - Medical Ambience App: "https://github.com/anuditverma/MAA-Avaya-Hackathon"
+  #   - TypeRacer: "https://github.com/anuditverma/appbase-typeracer"
+  #   - video.js Overlay Hyperlink: "https://www.npmjs.com/package/videojs-overlay-hyperlink"
+  # Resume: "resume/Anudit_Verma.pdf"
+  Tags: "tags"
 
 # Image to show in the navigation bar - image must be a square (width = height)
 # Remove this parameter if you don't want an image in the navbar
@@ -68,41 +68,41 @@ navbar-links:
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: Matheus Cardoso
-# email: "youremail@domain.com"
+  email: "mcardosos99@gmail.com"
   # facebook: anuditverma
   github: Cardosaum
   twitter: _cardosaum_
   # google-plus: +AnuditVerma
-  # linkedin: anuditverma
-  stackoverflow: 4590331/anudit-verma
+  linkedin: matheus-c-souza
+  stackoverflow: 10719703/evem-mc
   instagram: cardosaum
-# reddit: yourname
+  reddit: Evem_MC
 # xing: yourname
 # stackoverflow: yourlink  # eg. "3943160/daattali"
 # snapchat: yourname
 # youtube: yourlink   # eg. user/daattali or channel/daattali
-# spotify: yourname
+  spotify: cardosaum
 # steam: yourname
 # twitch: yourname
 # yelp: yourname
 
 # Select which links to show in the footer
 footer-links-active:
-  rss: false
+  rss: true
   facebook: true
-  email: false
+  email: true
   twitter: true
   google-plus: true
   github: true
   linkedin: true
-  stackoverflow: false
+  stackoverflow: true
   instagram: true
-  reddit: false
+  reddit: true
   xing: false
-  stackoverflow: false
+  stackoverflow: true
   snapchat: false
   youtube: false
-  spotify: false
+  spotify: true
   steam: false
   twitch: false
   yelp: false
@@ -121,10 +121,10 @@ url-pretty: "www.cardosaum.github.io"
 # --- Misc --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "anuditverma"
+disqus: "cardosaum"
 
 # Fill in your Google Analytics ID to track your website using GA
-google_analytics: "UA-84991519-1"
+google_analytics: "UA-143011649-1"
 
 # Google Tag Manager ID
 #gtm: ""
@@ -143,11 +143,11 @@ title-separator: "-"
 # --- Don't need to touch anything below here (but you can if you want) --- #
 
 # Output options (more information on Jekyll's site)
-timezone: "Asia/Kolkata"
+timezone: "America/Brasilia"
 markdown: kramdown
 highlighter: rouge
 permalink: /:year-:month-:day-:title/
-paginate: 10
+paginate: 5
 
 kramdown:
   input: GFM
