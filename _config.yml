@@ -89,17 +89,17 @@ author:
 # Select which links to show in the footer
 footer-links-active:
   rss: true
-  facebook: true
+  facebook: false
   email: true
-  twitter: true
-  google-plus: true
-  github: true
+  twitter: false
+  google-plus: false
+  github: false
   linkedin: true
-  stackoverflow: true
+  stackoverflow: false
   instagram: true
-  reddit: true
+  reddit: false
   xing: false
-  stackoverflow: true
+  stackoverflow: false
   snapchat: false
   youtube: false
   spotify: true
@@ -121,10 +121,10 @@ url-pretty: "www.cardosaum.github.io"
 # --- Misc --- #
 
 # Fill in your Disqus shortname (NOT the userid) if you want to support Disqus comments
-disqus: "cardosaum"
+# disqus: "cardosaum"
 
 # Fill in your Google Analytics ID to track your website using GA
-google_analytics: "UA-143011649-1"
+# google_analytics: "UA-143011649-1"
 
 # Google Tag Manager ID
 #gtm: ""
@@ -160,8 +160,8 @@ defaults:
       type: "posts"
     values:
       layout: "post"
-      comments: true  # add comments to all blog posts
-      social-share: true # add social media sharing buttons to all blog posts
+      comments: false  # add comments to all blog posts
+      social-share: false # add social media sharing buttons to all blog posts
   -
     scope:
       path: "" # all files
