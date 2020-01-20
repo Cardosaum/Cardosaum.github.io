@@ -50,11 +50,11 @@ Mas isso é bom. daqui a um tempo você vai conseguir resolver questões complex
 
 Tome essa questão como exemplo:
 
-![pdm_question](img/pdm_question_ex.jpg)
+![pdm_question](/img/pdm_question_ex.jpg)
 
 E a solução dela :
 
-![pdm_question](img/pdm_question_ex_solution.jpg)
+![pdm_question](/img/pdm_question_ex_solution.jpg)
 
 Quando eu fui resolver essa questão, eu pensei que seria fácil, mas eu fiquei quase uma meia hora só pra entender essa resolução. Talvez eu seja meio lento? talvez `¯\_(ツ)_/¯` mas o fato é que, com esforço e dedicação você vai aperfeiçoando seu conhecimento.
 <br/>
