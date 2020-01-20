@@ -20,7 +20,7 @@ title: Matheus Cardoso
 # use subtitle: to set the sub heading for that title(meta-title). NOTE: if(meta-title exists){subtilel visiblity = true}
 
 # Short description of your site
-description: Hey, bora aprender
+# description: Hey, bora aprender
 
 # --- Navigation bar options --- #
 
@@ -68,20 +68,20 @@ navbar-links:
 # Important: you must keep the "name" parameter, everything else you can remove
 author:
   name: Matheus Cardoso
-  email: "mcardosos99@gmail.com"
+  # email: "test@gmail.com"
   # facebook: anuditverma
   github: Cardosaum
-  twitter: _cardosaum_
+  # twitter: _cardosaum_
   # google-plus: +AnuditVerma
   linkedin: matheus-c-souza
   stackoverflow: 10719703/evem-mc
-  instagram: cardosaum
-  reddit: Evem_MC
+  # instagram: cardosaum
+  # reddit: Evem_MC
 # xing: yourname
 # stackoverflow: yourlink  # eg. "3943160/daattali"
 # snapchat: yourname
 # youtube: yourlink   # eg. user/daattali or channel/daattali
-  spotify: cardosaum
+  # spotify: cardosaum
 # steam: yourname
 # twitch: yourname
 # yelp: yourname
