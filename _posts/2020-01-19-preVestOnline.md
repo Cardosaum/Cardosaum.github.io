@@ -8,7 +8,7 @@ tags: [estudo, vestibular]
 Olá! <br/>
 Eu pretendo, com esse post, apresentar alguns recursos que, penso, possam ser úteis para você se preparar para o vestibular. Em sua maioria são recursos online e, se não gratuitos, são de baixo custo.
 
-`TODO: fazer uma introdução mais apresentável`
+<!-- `TODO: fazer uma introdução mais apresentável` -->
 
 ### [Vestcursos](http://www.vestcursos.com/)
 
