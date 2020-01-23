@@ -24,7 +24,24 @@ Apesar disso, o que me manteve assinando a vestcursos durante esses meses foi a 
 
 #### Recomendação
 
-Eu recomendaria estudar com eles apenas os cursos lecionados pelos professores que eu mencionei acima.
+Eu recomendaria estudar na Vestcursos apenas as matérias lecionadas pelos professores que eu mencionei acima.
+
+Caso queira, você pode dar uma olhada em algumas aulas dos professores antes de assinar o curso também:
+
+  - Alexandre Oliveira - (Química)
+
+    - [Canal no Youtube](https://www.youtube.com/user/portalepisteme/)
+  
+  - Flávio Landim - (Biologia)
+
+    - [Canal no Youtube](https://www.youtube.com/channel/UCdg05XJt8LmbdasqQ5Bw_7g/)
+
+  - Renato Brito & Cláudio Neves - (Física & Português/Redação)
+
+    - [Canal no Youtube](https://www.youtube.com/user/condedemontecristto/playlists)
+
+
+
 > <small><i>O professor Flávio Landim [aparentemente está agora no cursinho do Ferreto](https://professorferretto.com.br/)...</i></small>
 
 <br/>
