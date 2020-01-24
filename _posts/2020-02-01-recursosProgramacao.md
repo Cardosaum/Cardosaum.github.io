@@ -128,6 +128,8 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
     - [E tem em Portugês também](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books-pt_BR.md)
 
 
+<br/>
 
-
-
+Bem, acho que com esses links você consegue ir longe!
+Só requer um pouco de dedicação, mas vale a pena.
+Desejo ótimos estudos, até mais!
