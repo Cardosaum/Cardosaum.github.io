@@ -8,7 +8,7 @@ tags: [estudo, programming]
 
 ## Intro
 
-Como você deve imaginar, nos dias de hoje, saber um pouco de programação pode ajudar muito, nas mais diversas áreas existentes... `insert link in every word of this sentence`
+Como você deve imaginar, nos dias de hoje, saber um pouco de programação pode ajudar muito, [nas mais](https://www.youtube.com/watch?v=UFnoxLN17ko) [diversas](https://www.youtube.com/watch?v=O-52enqUSNw) [áreas](https://www.youtube.com/watch?v=atcKO15YVD8) [imagináveis](https://www.youtube.com/watch?v=jtlrWblOyP4)...
 
 E, para te ajudar a iniciar nessa área, eu separei alguns recursos que conheço.
 Atualmente, eu sei um pouco de Python, Bash, e estou começando a aprender R. Portanto, os recursos serão majoritariamente dessas linguagens.
