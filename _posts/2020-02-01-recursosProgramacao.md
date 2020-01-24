@@ -27,13 +27,9 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
     - Esse curso é ministrado pelo Guanabara; com ele é super fácil de aprender a linguagem, muito didático.<br/>O público alvo são os iniciantes, que ainda não sabem nada sobre programação.<br/>Recomendo fazer os 3 “Mundos“ com ele.
 
-    - Preço: 0800
-
   - [Automate The Boring Stuff With Python](https://automatetheboringstuff.com/)
 
     - Esse livro é bem bacana. Ensina o básico da linguagem e também alguns tópicos sobre como automatizar tarefas repetitivas usando python
-
-    - Preço: 0800
 
     - O autor do livro também gravou um curso na Udemy, cobrindo os mesmos conteúdos do livro. (Basicamente é ele lendo o livro com você e explicando de forma interativa)
 
@@ -47,21 +43,15 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
     - Esse livro é bom para aprender tanto o básico de linux como a parte de programação em Bash (também conhecido como shell scripting)
 
-    - Preço: 0800
-
   - [Curso de Shell Scripting - Programação no Linux](https://www.youtube.com/playlist?list=PLucm8g_ezqNrYgjXC8_CgbvHbvI7dDfhs)
 
     - Também explica o básico de Bash, mas esse é um curso em vídeo, no YouTube.
-
-    - Preço: 0800
 
 ### R
 
   - [R for Data Science](https://r4ds.had.co.nz/introduction.html)
 
     - Muito bom se você deseja aprender programação em R voltado para Análise de Dados e Estatística.
-
-    - Preço: 0800
 
   - [Hands-On Programming with R](https://rstudio-education.github.io/hopr/)
 
