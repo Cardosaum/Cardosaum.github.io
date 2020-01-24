@@ -29,7 +29,7 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
   - [Automate The Boring Stuff With Python](https://automatetheboringstuff.com/)
 
-    - Esse livro é bem bacana. Ensina o básico da linguagem e também alguns tópicos sobre como automatizar tarefas repetitivas usando python
+    - Esse livro é bem bacana. Ensina o básico da linguagem e também alguns tópicos sobre como automatizar tarefas repetitivas usando python.
 
     - O autor do livro também gravou um curso na Udemy, cobrindo os mesmos conteúdos do livro. (Basicamente é ele lendo o livro com você e explicando de forma interativa)
 
@@ -37,9 +37,63 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
       - Se você consegue aprender bem apenas lendo o livro, eu recomendaria não fazer o curso. (A qualidade do curso é boa, mas, pelo menos pra mim, é mais fluído estudar só pelo livro)
 
+  - [Python for Everybody Specialization](https://www.coursera.org/specializations/python)
+
+    - Esse curso é completo e tem muitas recomendações boas. Eu não estudei por ele, então não posso garantir. Mas vale a pena tentar :P
+
+    - O curso, assim como todos do Coursera, é gratuito.
+
+  - [Lista de livros para aprender Python](https://pythonbooks.org/free-books/)
+
+    - Essa lista é bem grande. E todos são gratuitos!
+
+  - [Mais uma lista com livros de Python](https://github.com/Junnplus/awesome-python-books)
+
+    - Não sei se todos são gratuitos...
+
+  - [E mais uma...](https://github.com/pamoroso/free-python-books)
+
+    - Todos são gratuitos.
+
+    - Acho que deu pra entender que tem muitas listas, né? :P<br/>É só dar uma pesquisada que você encontra uma multidão de recursos.
+
+  - Outras Plataformas Online
+
+    - Você pode encontrar muitos outros materiais para aprender Python, Bash, R (e vários outros conteúdos) nessas plataformas:
+
+      - [Coursera](https://www.coursera.org/)
+
+        - Todos os cursos do Coursera são gratuitos (no modo de aluno ouvinte).
+
+        - Caso você deseje, pode comprar o certificado também!
+
+      - [EdX](https://www.edx.org/)
+
+        - O EdX segue o mesmo princípio do Coursera. Cursos gratuitos, oferecendo certificado caso você pague.
+
+        - As plataformas Coursera e EdX são incríveis, recomendo dar uma olhada com calma.
+
+      - [Udemy](https://www.udemy.com/)
+
+        - Vários cursos. tem que pesquisar bem aqueles com melhor recomendação
+
+        - Alguns são gratuitos, mas nem todos.
+
+        - Fique de olho nas promoções, muitas vezes to ofertas com 90% e até 100% de desconto!
+
+      - [OSSU - Open Source Society University]()
+
+        - [Computer Science](https://github.com/ossu/computer-science)
+
+        - [Data Science](https://github.com/ossu/data-science)
+
+        - [Bioinformatics](https://github.com/ossu/bioinformatics)
+
+        - [E muitos outros currículos](https://github.com/ossu)
+
 ### Bash
 
-  - [The Linux Command Line]()
+  - [The Linux Command Line](http://www.linuxcommand.org/tlcl.php)
 
     - Esse livro é bom para aprender tanto o básico de linux como a parte de programação em Bash (também conhecido como shell scripting)
 
