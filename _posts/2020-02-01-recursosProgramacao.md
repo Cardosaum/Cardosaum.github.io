@@ -57,39 +57,6 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
     - Acho que deu pra entender que tem muitas listas, né? :P<br/>É só dar uma pesquisada que você encontra uma multidão de recursos.
 
-  - Outras Plataformas Online
-
-    - Você pode encontrar muitos outros materiais para aprender Python, Bash, R (e vários outros conteúdos) nessas plataformas:
-
-      - [Coursera](https://www.coursera.org/)
-
-        - Todos os cursos do Coursera são gratuitos (no modo de aluno ouvinte).
-
-        - Caso você deseje, pode comprar o certificado também!
-
-      - [EdX](https://www.edx.org/)
-
-        - O EdX segue o mesmo princípio do Coursera. Cursos gratuitos, oferecendo certificado caso você pague.
-
-        - As plataformas Coursera e EdX são incríveis, recomendo dar uma olhada com calma.
-
-      - [Udemy](https://www.udemy.com/)
-
-        - Vários cursos. tem que pesquisar bem aqueles com melhor recomendação
-
-        - Alguns são gratuitos, mas nem todos.
-
-        - Fique de olho nas promoções, muitas vezes to ofertas com 90% e até 100% de desconto!
-
-      - [OSSU - Open Source Society University]()
-
-        - [Computer Science](https://github.com/ossu/computer-science)
-
-        - [Data Science](https://github.com/ossu/data-science)
-
-        - [Bioinformatics](https://github.com/ossu/bioinformatics)
-
-        - [E muitos outros currículos](https://github.com/ossu)
 
 ### Bash
 
@@ -118,6 +85,47 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
 
 
 
+### Outras Fontes de Recursos Online
+
+- Você pode encontrar muitos outros materiais para aprender Python, Bash, R (e vários outros conteúdos) nessas plataformas:
+
+  - [Coursera](https://www.coursera.org/)
+
+    - Todos os cursos do Coursera são gratuitos (no modo de aluno ouvinte).
+
+    - Caso você deseje, pode comprar o certificado também!
+
+  - [EdX](https://www.edx.org/)
+
+    - O EdX segue o mesmo princípio do Coursera. Cursos gratuitos, oferecendo certificado caso você pague.
+
+    - As plataformas Coursera e EdX são incríveis, recomendo dar uma olhada com calma.
+
+  - [Udemy](https://www.udemy.com/)
+
+    - Vários cursos. tem que pesquisar bem aqueles com melhor recomendação
+
+    - Alguns são gratuitos, mas nem todos.
+
+    - Fique de olho nas promoções, muitas vezes to ofertas com 90% e até 100% de desconto!
+
+  - [OSSU - Open Source Society University]()
+
+    - [Computer Science](https://github.com/ossu/computer-science)
+
+    - [Data Science](https://github.com/ossu/data-science)
+
+    - [Bioinformatics](https://github.com/ossu/bioinformatics)
+
+    - [E muitos outros currículos](https://github.com/ossu)
+
+  - [Github](https://github.com/EbookFoundation/free-programming-books)
+
+    - O Github não é uma plataforma de estudos, mas tem muitos recursos interessantes que você pode encontrar por lá, basta pesquisar.
+
+    - [Esse link](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books.md), por exemplo, é uma lista enorme com várias linguagens de programação diferentes.
+
+    - [E tem em Portugês também](https://github.com/EbookFoundation/free-programming-books/blob/master/free-programming-books-pt_BR.md)
 
 
 
