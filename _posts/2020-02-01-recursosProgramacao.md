@@ -60,3 +60,12 @@ Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. C
   - [Mais recursos para aprender R](https://education.rstudio.com/learn/)
 
     - Uma lista bem mais completa e organizada que a minha, recomendo dar uma olhada :)
+
+
+
+
+
+
+
+
+
