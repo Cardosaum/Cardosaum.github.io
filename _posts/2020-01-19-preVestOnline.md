@@ -28,7 +28,7 @@ Eu recomendaria estudar na Vestcursos apenas as matérias lecionadas pelos profe
 
 Caso queira, você pode dar uma olhada em algumas aulas dos professores antes de assinar o curso também:
 
-  - Alexandre Oliveira](https://www.youtube.com/user/portalepisteme/) - (Química)
+  - [Alexandre Oliveira](https://www.youtube.com/user/portalepisteme/) - (Química)
 
   - [Flávio Landim](https://www.youtube.com/channel/UCdg05XJt8LmbdasqQ5Bw_7g/) - (Biologia)
 
