@@ -41,7 +41,7 @@ Após isso, abra o recém instalado app. Você deve ver uma mensagem de boas vin
 Após ver o tutorial inicial, eu recomendo que você leia algumas dicas de utilização. Uma simples pesquisa no seu buscador preferido retornará algumas páginas que ensinam a como usar o app.
 Por comodidade, aqui está um [tutorial bem simples](https://www.techtudo.com.br/dicas-e-tutoriais/noticia/2015/06/como-usar-o-google-earth-no-computador.html).
 
-A partir de agora, vou assumir que você já sabe a como utilizar o básico.
+A partir de agora, vou assumir que você já sabe como utilizar o básico.
 
 Como você pode perceber, o Earth recém instalado não é muito útil para encontrar a localização de cidades biblícas. Portanto, teremos que baixar um arquivo com a relação dessas cidades e sua localização no globo. Felizmente, algumas pessoas já realizaram esse trabalho hercúleo de relacionar a maioria das cidades bíblicas e suas respectivas latitudes e longitues.
 
