@@ -1,5 +1,3 @@
-2020-03-29-estudos_biblicos_geolocalizacao
-
 ---
 layouts: post
 title: Como não se perder nas narrativas bíblicas - Geolocalização Pt. 1
