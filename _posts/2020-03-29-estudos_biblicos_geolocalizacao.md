@@ -49,7 +49,7 @@ Como você pode perceber, o Earth recém instalado não é muito útil para enco
 
 Agora que você deu uma explorada recomendo, por efeito de demostração, que você baixe [esse arquivo](https://a.openbible.info/geo/kmls/all.kmz) contendo todas as cidades bíblicas (ou quase todas :P). 
 
-_(Lembre-se que você pode aplicar o mesmo princípio para qualquer arquivo `.kmz` ou `.kml` do site anterior!)_
+> _(Lembre-se que você pode aplicar o mesmo princípio para qualquer arquivo `.kmz` ou `.kml` do site anterior!)_
 
 Abra seu explorador de arquivos (Windows Explorer, por exemplo) e encontre o arquivo que acabou de baixar. Clique com o botão direito nele e selecione "Abrir como → Google Earth".
 
