@@ -53,7 +53,7 @@ Agora que você deu uma explorada recomendo, por efeito de demostração, que vo
 
 Abra seu explorador de arquivos (Windows Explorer, por exemplo) e encontre o arquivo que acabou de baixar. Clique com o botão direito nele e selecione "Abrir como → Google Earth".
 
-O Earth deve ter atualizado, agora mostrando, no menu à esquerda "Places" um novo item, chamado "All Bible Places". Você pode expandir esse item e dar uma olhada na infinidade de locais disponíveis. Observe também que não apenas os locais estão disponíveis, como também as passagens bíblicas nas quais eles são mencionados.
+O Earth deve ter atualizado, agora mostrando, no menu à esquerda "Places", um novo item, chamado "All Bible Places". Você pode expandir esse item e dar uma olhada na infinidade de locais disponíveis. Repare que não apenas os locais estão disponíveis, como também as passagens bíblicas nas quais eles são mencionados.
 
 
 
