@@ -45,9 +45,11 @@ A partir de agora, vou assumir que você já sabe como utilizar o básico.
 
 Como você pode perceber, o Earth recém instalado não é muito útil para encontrar a localização de cidades biblícas. Portanto, teremos que baixar um arquivo com a relação dessas cidades e sua localização no globo. Felizmente, algumas pessoas já realizaram esse trabalho hercúleo de relacionar a maioria das cidades bíblicas e suas respectivas latitudes e longitues.
 
-[Nesse link](https://www.openbible.info/geo/) você vai encontrar vários arquivos úteis. Peço que você gaste um tempo lendo a página e explorando esse site.
+[Nesse link](https://www.openbible.info/geo/) você vai encontrar vários arquivos úteis. Peço que você gaste um tempo lendo a página e explorando o site.
 
-Agora que você deu uma explorada no site, recomendo, por efeito de demostração, que você baixe [esse arquivo](https://a.openbible.info/geo/kmls/all.kmz). _(Lembre-se que você pode aplicar o mesmo princípio para qualquer arquivo `.kmz` ou `.kml` do site anterior!)_
+Agora que você deu uma explorada recomendo, por efeito de demostração, que você baixe [esse arquivo](https://a.openbible.info/geo/kmls/all.kmz) contendo todas as cidades bíblicas (ou quase todas :P). 
+
+_(Lembre-se que você pode aplicar o mesmo princípio para qualquer arquivo `.kmz` ou `.kml` do site anterior!)_
 
 Abra seu explorador de arquivos (Windows Explorer, por exemplo) e encontre o arquivo que acabou de baixar. Clique com o botão direito nele e selecione "Abrir como → Google Earth".
 
