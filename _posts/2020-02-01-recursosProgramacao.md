@@ -11,15 +11,13 @@ tags: [estudo, programming]
 Como você deve imaginar, nos dias de hoje, saber um pouco de programação pode ajudar muito, [nas mais](https://www.youtube.com/watch?v=UFnoxLN17ko) [diversas](https://www.youtube.com/watch?v=O-52enqUSNw) [áreas](https://www.youtube.com/watch?v=atcKO15YVD8) [imagináveis](https://www.youtube.com/watch?v=jtlrWblOyP4)...
 
 E, para te ajudar a iniciar nessa área, eu separei alguns recursos que conheço.
-Atualmente, eu sei um pouco de Python, Bash, e estou começando a aprender R. Portanto, os recursos serão majoritariamente dessas linguagens.
+Atualmente, eu sei um pouco de Python, Bash, R e algumas outras linguagens. Portanto, os recursos serão majoritariamente dessas linguagens.
 
 Antes de começarmos, é bom que você conheça ao menos o básico de o que é uma linguagem de programação:
 
-`insert link to a video explaining what is a programming language`
+ - [What is a programming language?](https://www.youtube.com/watch?v=EGQh5SZctaE)
 
 Além disso, você precisa saber qual linguagem gostaria de aprender primeiro. Cada uma tem suas peculiaridades, pontos fortes e fracos. Como cada uma delas foi desenvolvida com um objetivo específico, eu recomendo você procurar saber qual delas atenderia aos seus interesses.
-
-`insert link for each programming language (Python, Bash, R)`
 
 ### Python
 
