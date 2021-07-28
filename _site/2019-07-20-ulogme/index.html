@@ -1,0 +1,785 @@
+<!DOCTYPE html>
+<html lang="en">
+  <!-- Beautiful Jekyll | MIT license | Copyright Dean Attali 2016 -->
+  <head>
+  <meta charset="utf-8" />
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, viewport-fit=cover">
+  
+  <title>uLogMe - Acompanhe como você usa seu tempo!</title>
+
+  <meta name="author" content="Matheus Cardoso" />
+  <meta name="theme-color" content="#003A50">
+  <meta name="description" content="Hi! I'm Matheus Cardoso, Computer Science student at UnB, Brasília.">
+  <meta name="keywords" content="matheus, cardoso, cardosaum, anki, estudos biblicos, python, linux, science, math, mathematics, biotech, biotechnology, biotecnologia, Internet of Things, research, android">
+
+  <!-- favicon -->
+  <link rel="shortcut icon" type="image/jpg" href="/img/brain.jpg" />
+
+  <!-- MathJax -->
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({messageStyle: 'none',tex2jax: {inlineMath: [['$','$'], ['\\(','\\)']]}});</script>
+  <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.4/MathJax.js?config=TeX-MML-AM_CHTML" async></script>
+  <script type="text/x-mathjax-config">MathJax.Hub.Config({TeX: { equationNumbers: { autoNumber: "AMS" } }});</script>
+
+  <link rel="alternate" type="application/rss+xml" title="Matheus Cardoso - My blog" href="/feed.xml" />
+
+  
+  
+  
+  
+    
+      
+  <link rel="stylesheet" href="//maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" />
+
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="/css/bootstrap.min.css" />
+    
+      <link rel="stylesheet" href="/css/bootstrap-social.css" />
+    
+      <link rel="stylesheet" href="/css/main.css" />
+    
+      <link rel="stylesheet" href="/css/particle-js-style.css" />
+    
+  
+
+  
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Lora:400,700,400italic,700italic" />
+    
+      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Open+Sans:300italic,400italic,600italic,700italic,800italic,400,300,600,700,800" />
+    
+  
+
+  
+
+  
+
+  
+
+    <!-- Facebook OpenGraph tags -->
+  
+
+  
+  <meta property="og:title" content="uLogMe - Acompanhe como você usa seu tempo!" />
+  
+
+   
+  <meta property="og:description" content="uLogeMe - Seu Logger pessoal Este post abordará um programa Open-Source escrito em Python, Bash e JavaScript que tem por finalidade salvar todas as atividades feitas no computador. Ele armazenará todos os nomes de janelas abertas no dia, bem como a hora que esta janela foi aberta. Posteriormente, com todos...">
+  
+
+
+  <meta property="og:type" content="website" />
+
+  
+  <meta property="og:url" content="http://localhost:4000/2019-07-20-ulogme/" />
+  <link rel="canonical" href="http://localhost:4000/2019-07-20-ulogme/" />
+  
+
+  
+  
+
+  <!-- Twitter summary cards -->
+  <meta name="twitter:card" content="summary" />
+  <meta name="twitter:site" content="@" />
+  <meta name="twitter:creator" content="@" />
+
+  
+  <meta name="twitter:title" content="uLogMe - Acompanhe como você usa seu tempo!" />
+  
+
+  
+  <meta name="twitter:description" content="uLogeMe - Seu Logger pessoal Este post abordará um programa Open-Source escrito em Python, Bash e JavaScript que tem por finalidade salvar todas as atividades feitas no computador. Ele armazenará todos os nomes de janelas abertas no dia, bem como a hora que esta janela foi aberta. Posteriormente, com todos...">
+  
+
+  
+
+</head>
+
+
+  <body>
+
+  <div class="mobile-js-hide">
+    <!-- particles.js container -->
+    <div id="particles-js"></div>
+  </div>
+
+    
+    
+    <nav class="navbar navbar-default navbar-fixed-top navbar-custom">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#main-navbar">
+        <span class="sr-only">Toggle navigation</span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+      </button>
+      
+        <a class="navbar-brand" href="http://localhost:4000">Matheus Cardoso</a>
+      
+    </div>
+
+    <div class="collapse navbar-collapse" id="main-navbar">
+      <ul class="nav navbar-nav navbar-right">
+      
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/aboutme">Sobre Mim</a>
+          </li>
+        
+        
+        
+          <li>
+            
+
+
+
+
+
+
+<a href="/tags">Tags</a>
+          </li>
+        
+        
+      </ul>
+    </div>
+
+<!-- ALways use my avatar, irrespective of the post image -->
+  <!-- <div class="avatar-container">
+    <div class="avatar-img-border">
+      <a href="http://localhost:4000 ">
+        <img class="avatar-img" src="http://localhost:4000/img/av.jpg" />
+     </a>
+    </div>
+  </div>
+ -->
+  </div>
+</nav>
+
+    <!-- particles.js exclusion -->
+<style>
+  #particles-js{
+      display: none;
+  }
+</style>
+
+<!-- TODO this file has become a mess, refactor it -->
+
+
+<div class="intro-header"></div>
+
+
+<div class="container">
+  <div class="row">
+    <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+      
+
+      <article role="main" class="blog-post">
+        <h2 id="ulogeme---seu-logger-pessoal"><a name="uLogeMe - Seu Logger pessoal"></a>uLogeMe - Seu Logger pessoal</h2>
+
+<p>Este post abordará um programa Open-Source escrito em <em>Python</em>, <em>Bash</em> e <em>JavaScript</em> que tem por finalidade salvar todas as atividades feitas no computador. Ele armazenará todos os nomes de janelas abertas no dia, bem como a hora que esta janela foi aberta. Posteriormente, com todos os dados salvos, ele cria de forma automática várias estatísticas de uso, possibilitando fácil visualização de como o tempo foi gasto em cada atividade.
+Não preocupe, seus dados pertencerão somente a você! O uLogMe não faz upload de absolutamente nada para qualquer armazenamento externo.</p>
+
+<h2 id="sumário">Sumário</h2>
+
+<p>Para nos organizarmos melhor nesse post, teremos a seguinte estrutura:</p>
+<ul>
+  <li><a href="#uLogeMe - Seu Logger pessoal" style="text-decoration: none">Requisitos</a></li>
+  <li><a href="#Um breve overview" style="text-decoration: none">Um breve overview</a></li>
+  <li><a href="#Preparando o terreno" style="text-decoration: none">Preparando o terreno</a></li>
+  <li><a href="#Configuração" style="text-decoration: none">Configuração</a></li>
+  <li><a href="#Instalação" style="text-decoration: none">Instalação</a></li>
+  <li><a href="#Conhecendo seu novo Logger" style="text-decoration: none">Conhecendo seu novo Logger</a></li>
+</ul>
+
+<h2 id="requisitos">Requisitos</h2>
+
+<ul>
+  <li>
+    <p>Para que você possa instalar esse programa é necessário que você tenha um sistema operacional Linux. (caso você tenha um sistema operacional OS X, veja a <a href="https://github.com/karpathy/ulogme">página do criador original, <em>Karpathy</em>, no github</a>). Esse post é baseado na versão criada pelo <a href="https://github.com/Naereen/uLogMe"><em>Naereen</em></a>, que fez umas boas modificações no código original.<br />Me desculpe, se você usa Windows não conseguirá usar o uLogMe…</p>
+  </li>
+  <li>
+    <p>Será necessário que você algum conhecimento básico sobre operações por linha de comando (não se preocupe, tentarei ser o mais simples possível)</p>
+  </li>
+</ul>
+
+<h2 id="um-breve-overview"><a name="Um breve overview"></a>Um breve overview</h2>
+
+<p>Hoje nós falaremos sobre o uLogMe. Ele é um programa que salva toda a sua atividade feita no computador, quanto tempo você gasta em cada janela aberta, e no final mosta alguns gráficos bem legais. Dessa forma, você pode analisar como está gastando seu tempo, ver se tem alguma atividade atrapalhando sua produtividade ~Instagram~ e, assim, tomar medidas para melhorar isso.</p>
+
+<p>Aqui estão alguns exemplos de estatísticas geradas automaticamente:</p>
+
+<p><img src="/img/ulogme/ulogme_activity_breakdown.png" alt="daily view - ulogme" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">Resumo das atividades do dia.</div>
+
+<p><img src="/img/ulogme/ulogme_num_of_keystrokes.png" alt="key strokes" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">Número de teclas digitadas por segundo - em cada janela.</div>
+
+<p><img src="/img/ulogme/ulogme_bar_codes.png" alt="bar codes" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">"Código de Barras" mostrando, por grupos, quanto tempo foi gasto em cada atividade. Por exemplo, minha segunda linha corresponde à linha de estudos bíblicos/devocinal. Com esse gráfico é possível ver que meu perído de devocional esse dia foi entre as 10:30 até as 11:30 mais ou menos.</div>
+
+<p><img src="/img/ulogme/ulogme_all_days_overview.png" alt="bar codes" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">O uLogMe também apresenta um overview de todos os dias dos quais ele tem dados</div>
+
+<p><img src="/img/ulogme/ulogme__all_days_per_window_sumarie.png" alt="bar codes" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">Também tem o total de tempo por janela (coluna da esquerda) e o total de teclas digitadas em cada janela (coluna da direita).</div>
+
+<p><img src="/img/ulogme/ulogme_all_days_total_keys_pressed.png" alt="bar codes" /></p>
+<div style="font-family: Calibri; color: grey; font-size: 13px; text-align: right;">E, por fim, temos um gráfico com a frequência, quantidade e distribuição de teclas digitadas durante o dia.</div>
+
+<p>E aí, o que achou das estatísticas que o uLogMe gera?</p>
+
+<p>Bom, se você se interessou de ter acesso a esses dados de uso, vamos passar para a parte de instalação do programa.</p>
+
+<h2 id="preparando-o-terreno"><a name="Preparando o terreno"></a>Preparando o terreno</h2>
+
+<h3 id="instalando-pacotes-necessários">Instalando Pacotes Necessários</h3>
+
+<p>Primeiramente, é bom que você dê uma olhada na <a href="https://github.com/Naereen/uLogMe">página de instalação oficial</a>.</p>
+
+<p>Como requisitos para correto funcionamento, você terá que instalar os seguintes pacotes: <code class="language-plaintext highlighter-rouge">git</code>, <code class="language-plaintext highlighter-rouge">xdotool</code>, <code class="language-plaintext highlighter-rouge">xinput</code>, <code class="language-plaintext highlighter-rouge">wmctrl</code> e <code class="language-plaintext highlighter-rouge">xprintidle</code></p>
+
+<p>Se seu sistema for o Debian ou algum dos seus derivados (como o Ubuntu, Linux Mint, etc.) você pode executar o seguinte comando para instalar todos estes pacotes de uma vez só:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">sudo </span>apt <span class="nb">install </span>git xdotool xinput wmctrl xprintidle
+</code></pre></div></div>
+
+<p>Caso você use uma distro não baseada em Debian, pode instalar esses pacotes substituindo <code class="language-plaintext highlighter-rouge">apt</code> por <code class="language-plaintext highlighter-rouge">pacman</code> (ArchLinux) ou <code class="language-plaintext highlighter-rouge">yum</code> (Fedora), por exemplo.</p>
+
+<h3 id="baixando-o-programa">Baixando o Programa</h3>
+
+<p>Bem, agora que os pacotes necessários estão intalados, você terá de baixar o programa.
+Primeiro, abra o terminal e digite:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/
+</code></pre></div></div>
+
+<p>Com esse comando, você está mudando da pasta atualmente aberta para a pasta <em>~/.local/</em>. (note que <code class="language-plaintext highlighter-rouge">~</code> é simplesmente um atalho para o diretório do seu usuário atual, com o formato <code class="language-plaintext highlighter-rouge">/home/&lt;USUÁRIO&gt;/</code>. No meu caso, seria o diretório <code class="language-plaintext highlighter-rouge">/home/matheus/</code>).
+Você pode escolher qualquer pasta para salvar o programa. Não necessáriamente ele tem que estar localizado na pasta <code class="language-plaintext highlighter-rouge">.local</code>.</p>
+
+<p>Agora que você está dentro do diretório no qual deseja instalar o uLogMe, você pode baixá-lo com o comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>git clone https://github.com/Naereen/uLogMe.git ulogme
+</code></pre></div></div>
+<p>Pronto. Agora que você tem o programa baixado, vamos entender como ele está organizado.</p>
+
+<h3 id="entendendo-os-diretórios-do-ulogme">Entendendo os diretórios do uLogMe</h3>
+
+<p>Essa é uma parte importante, pois entendendo como o uLogMe foi escrito te ajudará a modificá-lo no futuro. Assim, você poderá personalizá-lo para ficar da forma como você achar melhor.</p>
+
+<p>Bom, assumindo que você instalou o programa no diretório <code class="language-plaintext highlighter-rouge">~/.local/</code> com o nome de <code class="language-plaintext highlighter-rouge">ulogme</code>, vamos agora explorar o que tem em cada pasta:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/
+
+<span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>Rodando esses comandos, nos asseguramos que estamos na pasta que o uLogMe foi instalado, e também podemos ver quais são os arquivos e subdiretórios que ele contém.</p>
+
+<p>Você deve ter um output mais ou menos assim:</p>
+
+<pre><code class="language-plain">drwxr-xr-x 2 matheus matheus  4096 jul 22 08:10 logs
+drwxr-xr-x 7 matheus matheus  4096 jul 10 23:50 render
+drwxr-xr-x 2 matheus matheus  4096 jul 10 22:27 screenshots
+drwxrwxr-x 4 matheus matheus  4096 jul 10 23:18 scripts
+-rw-r--r-- 1 matheus matheus    25 jun 14 09:12 _config.yml
+-rw-r--r-- 1 matheus matheus  1123 jun 14 09:12 LICENSE
+-rw-r--r-- 1 matheus matheus  1406 jun 14 09:12 nginx.conf
+-rw-r--r-- 1 matheus matheus 16156 jun 14 09:12 README.md
+</code></pre>
+<p>As linhas que começam com <code class="language-plaintext highlighter-rouge">d</code> indicam que o <em>output</em> é um diretório. Portanto, no primeiro nível dentro do diretório <code class="language-plaintext highlighter-rouge">~/.local/ulogme/</code>, temos que <code class="language-plaintext highlighter-rouge">logs</code>, <code class="language-plaintext highlighter-rouge">render</code>, <code class="language-plaintext highlighter-rouge">screenshots</code> e <code class="language-plaintext highlighter-rouge">scripts</code> são diretórios. O outros são arquivos.</p>
+
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">_config.yml</code> é o arquivo principal de configuração da página Web que o uLogMe usa para mostrar as estatísticas.</li>
+  <li><code class="language-plaintext highlighter-rouge">LICENSE</code> é a licença de uso do programa.</li>
+  <li><code class="language-plaintext highlighter-rouge">nginx.conf</code> é o arquivo que configurará o servidor local para mostrar as estatísticas por qualquer navegador Web. (Uilizarei o Firefox durante este post, mas qualquer navegador deve funcionar, não se preocupe).</li>
+  <li><code class="language-plaintext highlighter-rouge">README.md</code> é o arquivo com as informações de instalação (em inglês), do autor do uLogMe. Você pode acessar o mesmo arquivo, com uma formatação mais bacana, nesse <a href="https://github.com/Naereen/uLogMe">link</a>.</li>
+</ul>
+
+<p>Vamos agora para o diretório <code class="language-plaintext highlighter-rouge">scripts</code>. Esse é o diretório que contém todos os arquivos responsáveis por criar o servidor Web (que permitirá a você ter acesso fácil às estatísticas geradas) e, também, por fazer a coleta dos dados. Pense nesse diretório como sendo o <em>motor</em> de todo o programa.</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ./scripts
+
+<span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>Os arquivos são os seguintes:</p>
+
+<pre><code class="language-plain">drwxrwxr-x 2 matheus matheus  4096 jul 10 23:20 icons
+drwxrwxr-x 2 matheus matheus  4096 jul 11 22:24 __pycache__
+-rwxrwxr-x 1 matheus matheus  3402 jun 14 09:12 color.sh
+-rw-rw-r-- 1 matheus matheus  7196 jun 14 09:12 export_events.py
+-rw-rw-r-- 1 matheus matheus  6275 jun 14 09:14 export_events.pyc
+-rwxrwxr-x 1 matheus matheus  4211 jun 14 09:12 keyfreq.sh
+-rw-rw-r-- 1 matheus matheus  4184 jun 14 09:12 legacy_split_events.py
+-rwxrwxr-x 1 matheus matheus  7096 jun 14 09:12 logactivewin.sh
+-rw-rw-r-- 1 matheus matheus   872 jun 14 09:12 logdesktop.sh
+-rw-rw-r-- 1 matheus matheus   737 jun 14 09:12 note.sh
+-rw-rw-r-- 1 matheus matheus  9242 jun 14 09:12 notify.py
+-rw-rw-r-- 1 matheus matheus  6652 jun 14 09:14 notify.pyc
+-rw-rw-r-- 1 matheus matheus 10126 jun 14 09:12 README.md
+-rw-rw-r-- 1 matheus matheus  1971 jun 14 09:12 rewind7am.py
+-rw-rw-r-- 1 matheus matheus  2159 jun 14 09:14 rewind7am.pyc
+-rwxrwxr-x 1 matheus matheus   646 jul 16 17:13 ulogme_data.sh
+-rw-rw-r-- 1 matheus matheus  4638 jun 14 09:12 ulogme_serve_https.py
+-rw-rw-r-- 1 matheus matheus  8480 jun 14 09:12 ulogme_serve.py
+-rw-rw-r-- 1 matheus matheus  1797 jun 14 09:12 ulogme_serve.sh
+-rw-rw-r-- 1 matheus matheus  1682 jun 14 09:12 ulogme_tmux.sh
+</code></pre>
+
+<p>Se você tem um conhecimento básico de <em>Python</em> e <em>Bash</em>, recomendo que dê uma olhada em cada um dos arquivos. Agora, mesmo que você não conheça nenhuma dessas linguagens, eu vou dar uma explicada básica sobre o que o programa está fazendo em cada um dos 4 arquivos principais do uLogMe.</p>
+
+<ol>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">ulogme_data.sh</code> - Esse é o principal arquivo de configuração, responsável por iniciar os sub-scripts que farão a coleta de dados. Pense nele como girar a chave de um carro, para dar a partida no motor.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">keyfreq.sh</code> - Esse script é responsável por contar quantas teclas foram digitadas por segundo, bem como em qual janela isso ocorreu.</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">logactivewin.sh</code> - Esse scritp escaneia, a cada 2 segundos, qual a janela ativa no momento, salvando o resultado em um arquivo <code class="language-plaintext highlighter-rouge">.txt</code> dentro da pasta <code class="language-plaintext highlighter-rouge">../logs/</code>. (Pois é, ele faz a checagem nesse intervalo bem curto! Mas, mesmo assim, não consome praticamente nada de CPU ou RAM. Caso você queira modificar o tempo de checagem, esse é o script que você tem que modificar)</p>
+  </li>
+  <li>
+    <p><code class="language-plaintext highlighter-rouge">color.sh</code> - Esse script basicamente deixa seu terminal com <a href="https://raw.githubusercontent.com/Naereen/uLogMe/master/screenshots/demo_colored_logs_in_tmux.png">cores personalizadas</a>.</p>
+  </li>
+</ol>
+
+<p>Como dá pra perceber, é um resumo extremamente superficial. Foi só pra você ter uma noção de quais são os principais scripts e onde procurar primeiro, caso você deseje modificar alguma coisa.</p>
+
+<p>Passando agora para a pasta <code class="language-plaintext highlighter-rouge">logs</code>: Essa é a pasta na qual o uLogMe salva todos os dados coletados. Ela está em: <code class="language-plaintext highlighter-rouge">~/.local/ulogme/logs/</code></p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/logs/
+
+<span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+<p>O output será um conjunto de arquivos no formato <code class="language-plaintext highlighter-rouge">.txt</code>.</p>
+<ul>
+  <li><code class="language-plaintext highlighter-rouge">keyfreq_&lt;algum_número&gt;.txt</code> é um arquivo contendo as informações de quantas teclas foram digitadas por segundo em cada dia específico. (você terá um novo arquivo <code class="language-plaintext highlighter-rouge">keyfreq_&lt;algum_número&gt;.txt</code> para cada dia que o uLogMe coletou dados).</li>
+  <li><code class="language-plaintext highlighter-rouge">keyfreq_today.txt</code> é simplesmente um atalho para o arquivo <code class="language-plaintext highlighter-rouge">keyfreq_&lt;dia_atual&gt;.txt</code>.</li>
+  <li><code class="language-plaintext highlighter-rouge">window_&lt;algum_número&gt;.txt</code> é um arquivo contendo as informações de todas as janelas abertas no dia, bem como o horário em que isso ocorreu.</li>
+</ul>
+
+<p>No meu caso, o output do comando <code class="language-plaintext highlighter-rouge">ls -l</code> é assim:</p>
+
+<pre><code class="language-plain">-rw-r--r-- 1 matheus matheus   6153 jun 14 17:17 keyfreq_1560506400.txt
+-rw-r--r-- 1 matheus matheus   6118 jun 15 18:10 keyfreq_1560592800.txt
+-rw-r--r-- 1 matheus matheus   1489 jun 17 06:21 keyfreq_1560679200.txt
+-rw-r--r-- 1 matheus matheus   2858 jun 17 23:08 keyfreq_1560765600.txt
+-rw-r--r-- 1 matheus matheus  18355 jun 18 20:55 keyfreq_1560852000.txt
+-rw-r--r-- 1 matheus matheus   4104 jun 19 23:12 keyfreq_1560938400.txt
+-rw-r--r-- 1 matheus matheus   6620 jun 20 15:42 keyfreq_1561024800.txt
+-rw-r--r-- 1 matheus matheus   3505 jun 21 17:57 keyfreq_1561111200.txt
+-rw-r--r-- 1 matheus matheus  21067 jun 23 02:07 keyfreq_1561197600.txt
+-rw-r--r-- 1 matheus matheus  15343 jun 23 17:36 keyfreq_1561284000.txt
+-rw-r--r-- 1 matheus matheus   2435 jun 24 13:58 keyfreq_1561370400.txt
+-rw-r--r-- 1 matheus matheus  20283 jun 25 17:10 keyfreq_1561456800.txt
+-rw-rw-r-- 1 matheus matheus   4647 jul 11 23:50 keyfreq_1562839200.txt
+-rw-rw-r-- 1 matheus matheus  17650 jul 12 22:45 keyfreq_1562925600.txt
+-rw-rw-r-- 1 matheus matheus  12790 jul 13 23:08 keyfreq_1563012000.txt
+-rw-rw-r-- 1 matheus matheus  17140 jul 16 23:14 keyfreq_1563271200.txt
+-rw-rw-r-- 1 matheus matheus  27797 jul 18 00:01 keyfreq_1563357600.txt
+-rw-rw-r-- 1 matheus matheus  23740 jul 18 22:54 keyfreq_1563444000.txt
+-rw-rw-r-- 1 matheus matheus  15175 jul 19 23:51 keyfreq_1563530400.txt
+-rw-rw-r-- 1 matheus matheus  19401 jul 20 21:07 keyfreq_1563616800.txt
+-rw-rw-r-- 1 matheus matheus  11582 jul 21 17:49 keyfreq_1563703200.txt
+-rw-rw-r-- 1 matheus matheus   9644 jul 22 12:05 keyfreq_1563789600.txt
+lrwxrwxrwx 1 matheus matheus     22 jul 22 08:10 keyfreq_today.txt -&gt; keyfreq_1563789600.txt
+-rw-r--r-- 1 matheus matheus     47 jun 14 17:25 notes_1560506400.txt
+-rw-r--r-- 1 matheus matheus  38281 jun 14 19:25 window_1560506400.txt
+-rw-r--r-- 1 matheus matheus  68570 jun 15 22:28 window_1560592800.txt
+-rw-r--r-- 1 matheus matheus   4714 jun 17 06:35 window_1560679200.txt
+-rw-r--r-- 1 matheus matheus   5564 jun 17 23:08 window_1560765600.txt
+-rw-r--r-- 1 matheus matheus 119147 jun 18 21:26 window_1560852000.txt
+-rw-r--r-- 1 matheus matheus  45114 jun 20 00:12 window_1560938400.txt
+-rw-r--r-- 1 matheus matheus  60609 jun 20 21:49 window_1561024800.txt
+-rw-r--r-- 1 matheus matheus 101821 jun 21 23:01 window_1561111200.txt
+-rw-r--r-- 1 matheus matheus 138158 jun 23 02:07 window_1561197600.txt
+-rw-r--r-- 1 matheus matheus  74921 jun 23 17:37 window_1561284000.txt
+-rw-r--r-- 1 matheus matheus  16199 jun 24 13:58 window_1561370400.txt
+-rw-r--r-- 1 matheus matheus 102010 jun 25 19:40 window_1561456800.txt
+-rw-rw-r-- 1 matheus matheus  21484 jul 11 23:50 window_1562839200.txt
+-rw-rw-r-- 1 matheus matheus  86493 jul 12 22:45 window_1562925600.txt
+-rw-rw-r-- 1 matheus matheus  50954 jul 13 23:08 window_1563012000.txt
+-rw-rw-r-- 1 matheus matheus 139738 jul 16 23:14 window_1563271200.txt
+-rw-rw-r-- 1 matheus matheus 176667 jul 18 00:02 window_1563357600.txt
+-rw-rw-r-- 1 matheus matheus 105103 jul 18 22:53 window_1563444000.txt
+-rw-rw-r-- 1 matheus matheus 117138 jul 19 23:51 window_1563530400.txt
+-rw-rw-r-- 1 matheus matheus 101130 jul 20 21:07 window_1563616800.txt
+-rw-rw-r-- 1 matheus matheus 123323 jul 21 17:49 window_1563703200.txt
+-rw-rw-r-- 1 matheus matheus  62594 jul 22 12:04 window_1563789600.txt
+</code></pre>
+
+<p>É bom você saber onde seus dados estão armazenados. Assim, você pode fazer backup deles (É sempre melhor previnir do que remediar). Além disso, caso você queira apagar todos os seus dados, por qualquer motivo que seja, é só deletar os arquivos dentro da pasta <code class="language-plaintext highlighter-rouge">logs</code>.</p>
+
+<p>Uma última pasta que você precisa conhecer é a pasta <code class="language-plaintext highlighter-rouge">render</code>.</p>
+
+<p>vamos acessá-la e ver o que ela contém com o comando:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/render/
+
+<span class="nb">ls</span> <span class="nt">-l</span>
+</code></pre></div></div>
+
+<p>O output deve ser algo assim:</p>
+
+<pre><code class="language-plain">drwxr-xr-x 2 matheus matheus  4096 jul 10 22:28 css
+drwxrwxr-x 2 matheus matheus  4096 jul 10 23:39 images
+drwxrwxr-x 2 matheus matheus  4096 jul 10 23:45 js
+drwxrwxr-x 2 matheus matheus  4096 jul 21 14:00 json
+drwxrwxr-x 2 matheus matheus  4096 jul 10 23:50 svg
+-rw-r--r-- 1 matheus matheus   318 jun 14 09:12 favicon.ico
+-rw-r--r-- 1 matheus matheus  5529 jun 14 09:12 favicon.png
+-rw-r--r-- 1 matheus matheus 38558 jun 14 09:12 index.html
+-rw-r--r-- 1 matheus matheus    26 jun 14 13:48 ls
+-rw-r--r-- 1 matheus matheus 20905 jun 14 09:12 overview.html
+-rw-r--r-- 1 matheus matheus   164 jun 14 09:12 README.md
+-rw-r--r-- 1 matheus matheus  5289 jun 15 21:21 server.pem
+</code></pre>
+
+<p>Para resumir, essa pasta contém todos os dados necessários para produzir as páginas Web que te permitirão analisar as estatísticas geradas. É basicamente a pasta que com os scripts que criarão a interface gráfica do uLogMe.</p>
+
+<h2 id="configuração"><a name="Configuração"></a>Configuração</h2>
+
+<p>Como a pasta <code class="language-plaintext highlighter-rouge">render</code> possui muitas coisas, nós vamos ver somente o arquivo <code class="language-plaintext highlighter-rouge">render_settings_example.js</code>, para aprender como a classificação dos dados funciona. Depois, você ficará responsável por criar a sua própria regra de classificação.</p>
+
+<p>Bom, nessa parte, é interessante que você tenha algum editor de textos para poder ler o arquivo <code class="language-plaintext highlighter-rouge">render_settings_example.js</code> enquanto em vou comentando ele (por ser bem extenso, optei por não colocá-lo aqui).</p>
+
+<p>Vamos, então, acessar esse arquivo:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/render/js/
+
+&lt;EDITOR_DE_TEXTO&gt; render_settings_example.js
+</code></pre></div></div>
+
+<p>Note que você deverá substituir <code class="language-plaintext highlighter-rouge">&lt;EDITOR_DE_TEXTO&gt;</code> pelo seu atual editor de texto. Os mais comuns são: <code class="language-plaintext highlighter-rouge">gedit</code>, <code class="language-plaintext highlighter-rouge">kate</code> e <code class="language-plaintext highlighter-rouge">leafpad</code>. Você só precisa saber qual quer usar. No meu caso, como gosto bastante do sublime, o comando seria <code class="language-plaintext highlighter-rouge">subl render_settings_example.js</code>.</p>
+
+<p>Agora, com esse arquivo já aberto, vamos dar uma olhada no que ele faz:</p>
+
+<ol>
+  <li>
+    <p>Linhas 5-11: Explicação de como a classificação de cada janela funciona. (Se souber inglês, leia as instruções dessas linhas. Se não souber, <a href="https://www.deepl.com/translator">sempre tem um jeito</a> ;D )</p>
+  </li>
+  <li>
+    <p>Linhas 12-90: É basicamente da seguinte forma:
+ Digamos que a sua atual janela tenha por nome <code class="language-plaintext highlighter-rouge">YouTube - Mozilla Firefox</code>.
+ O script vai analisar, de cima para baixo, se o nome da janela apresenta algum dos padrões, especificados por <code class="language-plaintext highlighter-rouge">pattern: /&lt;PADÃRO&gt;/</code>. Se ela apresentar, então ele irá considerar que essa janela é referente a algum grupo, segundo a regra <code class="language-plaintext highlighter-rouge">mapto: &lt;NOME_DO_GRUPO&gt;</code>, presente na mesma linha.
+ No caso da janela <code class="language-plaintext highlighter-rouge">YouTube - Mozilla Firefox</code>, observe que primeiro o programa irá considerar que essa janela pertence ao grupo <code class="language-plaintext highlighter-rouge">Firefox</code>, conforme especificado na regra da linha 15. Entretanto, ele vai fazer a análise para todas as demais linhas também. Portanto, quando chegar na linha 38, ele vai modificar o grupo dessa janela, passando de <code class="language-plaintext highlighter-rouge">Firefox</code> para <code class="language-plaintext highlighter-rouge">Youtube</code>. Dessa forma, é possível especificar grupos de forma bem refinada.</p>
+  </li>
+  <li>
+    <p>Linhas 98-108: Qualquer nome de janela que não corresponder a nenhum padrão especificado anteriormente terá seu grupo definido como <code class="language-plaintext highlighter-rouge">MISC</code></p>
+  </li>
+  <li>
+    <p>Linhas 110-130: Essas linhas vão configurar os grupos que serão renderizados juntos, em uma mesma linha, no campo <a href="https://cardosaum.github.io/img/ulogme/ulogme_bar_codes.png">“Código de Barras”</a>. A configuração que eu fiz, para gerar esse resultado que você viu na imagem, foi esse aqui:</p>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">display_groups</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">PDF</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">YouTube</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VLC</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GMusicBrowser</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Anki</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">College</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bioinformatics</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Wikipedia</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">English</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Interval</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Readings</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Studying</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Bible</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// TSD</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Matlab</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Notebook</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Terminal</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GitHub</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bitbucket</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm rST</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Coding related</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Chats</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Firefox</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Agenda</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Internet</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Reddit</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Mails</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Skype</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Facebook</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Slack</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Social browsing</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Time-Tracker</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PC-Config</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PC-Automating</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Searching-Local_Files</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Backups</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// Computer Related</span>
+
+<span class="nx">display_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">([</span><span class="dl">'</span><span class="s1">Computer idle</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Computer locked</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Computer suspended</span><span class="dl">'</span><span class="p">]);</span> <span class="c1">// computer not being used</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Linhas 133-140: Essas linhas vão configurar os grupos renderizados no <a href="https://cardosaum.github.io/img/ulogme/ulogme_activity_breakdown.png">primeiro gráfico mostrado</a>. A configuração que eu usei para gerar a imagem que você acabou de ver (se não viu, clique no link) foi essa aqui:</p>
+
+    <div class="language-js highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="kd">var</span> <span class="nx">activity_groups</span> <span class="o">=</span> <span class="p">[];</span>
+
+<span class="nx">activity_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Studying</span><span class="dl">"</span><span class="p">,</span> <span class="na">titles</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">PDF</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">YouTube</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VLC</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GMusicBrowser</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Anki</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">College</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bioinformatics</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Wikipedia</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">English</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Interval</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Readings</span><span class="dl">'</span><span class="p">]});</span>
+
+<span class="nx">activity_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">TSD</span><span class="dl">"</span><span class="p">,</span> <span class="na">titles</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Bible</span><span class="dl">'</span><span class="p">]});</span>
+
+<span class="nx">activity_groups</span><span class="p">.</span><span class="nx">push</span><span class="p">({</span><span class="na">name</span><span class="p">:</span><span class="dl">"</span><span class="s2">Coding</span><span class="dl">"</span><span class="p">,</span> <span class="na">titles</span><span class="p">:</span> <span class="p">[</span><span class="dl">'</span><span class="s1">Matlab</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Notebook</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Terminal</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">GitHub</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Bitbucket</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">ST3 rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">VS-Code rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Bash</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom JS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom HTML</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom CSS</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom LaTeX</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">Atom rST</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm Python</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm Markdown</span><span class="dl">'</span><span class="p">,</span> <span class="dl">'</span><span class="s1">PyCharm rST</span><span class="dl">'</span><span class="p">]});</span>
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Linhas 143-151: Configuram quais grupos são considerados “Continuous typing”. No caso, eu mudei “Continuous typing” para “Studying Hard” (Você pode mudar o nome no título na linha 150)</p>
+  </li>
+  <li>
+    <p>Linhas 151-162: Algumas outras menores funcionalidades que o uLogMe oferece.</p>
+  </li>
+</ol>
+
+<p>Certo, agora que você já sabe como configurar as regras que classificarão as janelas, você precisará criar as suas próprias. Eu recomendo que você use o arquivo <code class="language-plaintext highlighter-rouge">render_settings_example.js</code> como um modelo a partir do qual você possa criar o seu <code class="language-plaintext highlighter-rouge">render_settings.js</code>, que é o arquivo que o uLogMe usará para fazer as classificações de cada janela que ele salva.</p>
+
+<p>Para isso, criaremos uma cópia do arquivo <code class="language-plaintext highlighter-rouge">render_settings_example.js</code>, com o nome de <code class="language-plaintext highlighter-rouge">render_settings.js</code>:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/render/js/
+
+<span class="nb">cp</span> ./render_settings_example.js ./render_settings.js
+</code></pre></div></div>
+
+<p>Agora, é só editar o arquivo <code class="language-plaintext highlighter-rouge">render_settings.js</code> para se adequar às suas necessidades.</p>
+
+<h2 id="instalação"><a name="Instalação"></a>Instalação</h2>
+
+<p>Agora que você já conhece como o uLogMe é organizado e já configurou os arquivos necessários, vamos partir para a parte de instalação.</p>
+
+<ol>
+  <li>
+    <p>Precisamos tornar alguns scripts executáveis:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~/.local/ulogme/scripts/
+
+<span class="nb">chmod</span> +x ulogme_data.sh
+<span class="nb">chmod</span> +x keyfreq.sh
+<span class="nb">chmod</span> +x logactivewin.sh
+<span class="nb">chmod</span> +x color.sh
+</code></pre></div>    </div>
+  </li>
+  <li>
+    <p>Agora, vamos fazer com que o script principal, <code class="language-plaintext highlighter-rouge">ulogme_data.sh</code> seja iniciado quando seu computador ligar:</p>
+
+    <div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code>crontab <span class="nt">-e</span>  <span class="c"># Vai abrir o menu de edição do cron (dê uma pesquisada por "crontab" na internet se você não sabe como usar ainda)</span>
+</code></pre></div>    </div>
+    <p>Vá para a última linha do seu contrab e adicione o seguinte comando: <code class="language-plaintext highlighter-rouge">@reboot sh $HOME/.local/ulogme/scripts/ulogme_data.sh</code>
+(<strong>Lembre-se de que no editor do crontab, para copiar um texto você deve usar <em>Ctrl+Shift+C</em>, e para colar deve usar <em>Ctrl+Shift+V</em></strong>)<br />
+Depois, certifique-se de adicionar uma linha vazia ao final do arquivo.<br />
+No final, seu crontab deve estar mais ou menos assim:</p>
+
+    <pre><code class="language-plain">
+# Edit this file to introduce tasks to be run by cron.
+#
+# Each task to run has to be defined through a single line
+# indicating with different fields when the task will be run
+# and what command to run for the task
+#
+# To define the time you can provide concrete values for
+# minute (m), hour (h), day of month (dom), month (mon),
+# and day of week (dow) or use '*' in these fields (for 'any').#
+# Notice that tasks will be started based on the cron's system
+# daemon's notion of time and timezones.
+#
+# Output of the crontab jobs (including errors) is sent through
+# email to the user the crontab file belongs to (unless redirected).
+#
+# For example, you can run a backup of all your user accounts
+# at 5 a.m every week with:
+# 0 5 * * 1 tar -zcf /var/backups/home.tgz /home/
+#
+# For more information see the manual pages of crontab(5) and cron(8)
+#
+# m h  dom mon dow   command
+
+@reboot sh $HOME/.local/ulogme/scripts/ulogme_data.sh
+
+</code></pre>
+    <p>(<strong>Certifique-se de que existe uma linha em branco no final do aquivo!</strong>)<br />
+(Para sair do editor, digite <strong><em>Ctrl+X</em></strong>, ele vai te perguntar se você deseja salvar. aperte a tecla <strong><em>S</em></strong> para informar que sim.)</p>
+  </li>
+  <li>
+    <p>Agora, reinicie seu computador.</p>
+  </li>
+</ol>
+
+<h2 id="conhecendo-seu-novo-logger"><a name="Conhecendo seu novo Logger"></a>Conhecendo seu novo Logger</h2>
+
+<p>Pronto! Agora o ulogme já está rodando e fazendo os logs.<br />
+Se você quiser acessar as estatísticas que ele cria, precisaremos fazer apenas mais um script:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
+
+nano ulogme_view_logs.py
+</code></pre></div></div>
+
+<p>Agora que o editor abriu, copie esse código para o arquivo:</p>
+
+<pre><code class="language-python3">#!/usr/bin/env python3
+import os
+import time
+import webbrowser
+
+home = os.path.expanduser('~')
+
+os.chdir('{}/.local/ulogme/scripts/'.format(home))
+
+os.system('/usr/bin/python3 ./export_events.py &amp;')
+
+time.sleep(3)
+
+os.system('/usr/bin/python3 ./ulogme_serve.py &amp;')
+
+time.sleep(0.2)
+
+webbrowser.open('http://localhost:8124')
+</code></pre>
+<p>Torne o arquivo executável:</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">chmod</span> +x ulogme_view_logs.py
+</code></pre></div></div>
+
+<p>Terminado! Agora você já pode visualisar os logs que o uLogMe está salvando!</p>
+
+<div class="language-bash highlighter-rouge"><div class="highlight"><pre class="highlight"><code><span class="nb">cd</span> ~
+
+./ulogme_view_logs.py
+</code></pre></div></div>
+
+<p>Executando esse comando o seu navegador padrão abrirá no link <code class="language-plaintext highlighter-rouge">http://localhost:8124</code>. Dentro de 3 segundos seu navegador deve abrir já na página do ulogme.<br />
+Agora, é só aproveitar seu novo Logger!</p>
+
+<p>Bem, o post fui um pouco extenso, mas espero que tenha ajudado. qualquer dúvida, <a href="https://www.t.me/Cardosaum">contate-me pelo telegram</a></p>
+
+      </article>
+
+      
+        <div class="blog-tags">
+          Tags:
+          
+          
+            <a href="/tags#ulogme">ulogme</a>
+          
+            <a href="/tags#linux">linux</a>
+          
+            <a href="/tags#programas">programas</a>
+          
+            <a href="/tags#produtividade">produtividade</a>
+          
+          
+        </div>
+      
+
+      
+
+      <ul class="pager blog-pager">
+        
+        <li class="previous">
+          <a href="/2019-06-29-primeiroPost/" data-toggle="tooltip" data-placement="top" title="Primeiro Post do Blog!">&larr; Previous Post</a>
+        </li>
+        
+        
+        <li class="next">
+          <a href="/2020-01-19-preVestOnline/" data-toggle="tooltip" data-placement="top" title="Recursos para Pré Vestibular Online">Next Post &rarr;</a>
+        </li>
+        
+      </ul>
+
+      
+    </div>
+  </div>
+</div>
+
+    <footer>
+  <div class="container beautiful-jekyll-footer">
+    <div class="row">
+      <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+        <ul class="list-inline text-center footer-links">
+          
+          
+      
+    
+      
+      
+      
+          <li>
+            <a href="https://linkedin.com/in/matheus-c-souza" title="LinkedIn">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-linkedin fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">LinkedIn</span>
+            </a>
+          </li>
+          
+      
+      
+      
+      
+      
+      
+      
+      
+          <li>
+            <a href="/feed.xml" title="RSS">
+              <span class="fa-stack fa-lg" aria-hidden="true">
+                <i class="fa fa-circle fa-stack-2x"></i>
+                <i class="fa fa-rss fa-stack-1x fa-inverse"></i>
+              </span>
+              <span class="sr-only">RSS</span>
+            </a>
+          </li>
+          
+      
+      
+      
+        </ul>
+        <p class="copyright text-muted">
+      Matheus Cardoso
+      &nbsp;&bull;&nbsp;
+      2021
+
+      
+      &nbsp;&bull;&nbsp;
+      <a href="http://localhost:4000">www.cardosaum.github.io</a>
+      
+      </p>
+          <!-- Please don't remove this, keep my open source work credited :) -->
+    <p class="theme-by text-muted">
+      Awesome Theme by
+      <a href="https://deanattali.com/beautiful-jekyll/">beautiful-jekyll</a>
+    </p>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+    
+
+
+
+
+
+
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+      <script>
+        if (typeof jQuery == 'undefined') {
+          document.write('<script src="/js/jquery-1.12.4.min.js"></scr' + 'ipt>');
+        }
+      </script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/bootstrap.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/main.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/particles.min.js"></script>
+    
+  
+    <!-- doing something a bit funky here because I want to be careful not to include JQuery twice! -->
+    
+  <script src="/js/particles-config.js"></script>
+    
+  
+
+  
+  </body>
+</html>

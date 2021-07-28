@@ -2,9 +2,53 @@
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
     <title>Matheus Cardoso</title>
-    <description>Hey, bora aprender</description>
+    <description>My blog</description>
     <link>http://localhost:4000</link>
     <atom:link href="http://localhost:4000/feed.xml" rel="self" type="application/rss+xml" />
+    
+      <item>
+        <title>Como não se perder nas narrativas bíblicas - Geolocalização Pt. 1</title>
+        <description>
+          
+          ver esse link; pode ajudar com mais coisas úteis a acrescentar: [Biblical Geography](https://bibleandtech.blogspot.com/2013/09/google-earth-exercise-for-biblical.html) TODO: introduction Table of Contents Introdução Nesse post, vamos aprender como usar o Google Earth como uma ferramenta para estudar a bíblia de forma mais completa. Mas antes de começarmos, eu gostaria de enfatizar a importância e...
+        </description>
+        <pubDate>Sun, 29 Mar 2020 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2020-03-29-estudos_biblicos_geolocalizacao/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-03-29-estudos_biblicos_geolocalizacao/</guid>
+      </item>
+    
+      <item>
+        <title>Recursos para Estudar Programação Online</title>
+        <description>
+          
+          Recursos para estudar programação online Intro Como você deve imaginar, nos dias de hoje, saber um pouco de programação pode ajudar muito, nas mais diversas áreas imagináveis… E, para te ajudar a iniciar nessa área, eu separei alguns recursos que conheço. Atualmente, eu sei um pouco de Python, Bash, R...
+        </description>
+        <pubDate>Sat, 01 Feb 2020 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2020-02-01-recursosProgramacao/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-02-01-recursosProgramacao/</guid>
+      </item>
+    
+      <item>
+        <title>Recursos para Pré Vestibular Online</title>
+        <description>
+          
+          Olá! Eu pretendo, com esse post, apresentar alguns recursos que, penso, possam ser úteis para você se preparar para o vestibular. Em sua maioria são recursos online e, se não gratuitos, são de baixo custo. Vestcursos Caso você não conheça esse cursinho, a Vestcursos é totalmente online, com foco em...
+        </description>
+        <pubDate>Sun, 19 Jan 2020 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2020-01-19-preVestOnline/</link>
+        <guid isPermaLink="true">http://localhost:4000/2020-01-19-preVestOnline/</guid>
+      </item>
+    
+      <item>
+        <title>uLogMe - Acompanhe como você usa seu tempo!</title>
+        <description>
+          
+          uLogeMe - Seu Logger pessoal Este post abordará um programa Open-Source escrito em Python, Bash e JavaScript que tem por finalidade salvar todas as atividades feitas no computador. Ele armazenará todos os nomes de janelas abertas no dia, bem como a hora que esta janela foi aberta. Posteriormente, com todos...
+        </description>
+        <pubDate>Sat, 20 Jul 2019 00:00:00 +0000</pubDate>
+        <link>http://localhost:4000/2019-07-20-ulogme/</link>
+        <guid isPermaLink="true">http://localhost:4000/2019-07-20-ulogme/</guid>
+      </item>
     
       <item>
         <title>Primeiro Post do Blog!</title>
